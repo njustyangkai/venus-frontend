@@ -58,6 +58,10 @@
     border-right: 0;
 }
 
+.class-table tbody td.chosen {
+    background-color: #f8f8f8;
+}
+
 .date {
     font-size: 14px;
 }

@@ -1,5 +1,6 @@
 import { Component, Injectable } from '@angular/core';
-import { NgbDatepickerI18n, NgbDateStruct } from '@ng-bootstrap/ng-bootstrap';
+import { NgbDatepickerI18n } from '@ng-bootstrap/ng-bootstrap';
+import * as moment from 'moment';
 
 const I18N_VALUES = {
   en: {
@@ -43,6 +44,9 @@ export class CustomDatepickerI18n extends NgbDatepickerI18n {
 export class ClassComponent {
   clocks:string[];
 
+  currentDate:any;
+  currentWeekday:number;
+
   constructor(private _i18n:I18n) {
     this._i18n.language = 'zh';
     this.clocks = [
@@ -50,5 +54,33 @@ export class ClassComponent {
       '15:00', '16:00', '17:00', '18:00', '19:00', '20:00', '21:00',
       '22:00'
     ];
+    this.getNow();
+  }
+
+  getNow() {
+    let date = new Date();
+    this.currentDate = {
+      year: date.getFullYear(),
+      month: date.getMonth() + 1,
+      day: date.getDate()
+    };
+    this.getDate();
+  }
+
+  getDate() {
+    let d = this.currentDate.year + '-' + this.currentDate.month + '-' + this.currentDate.day;
+    let date = new Date(d);
+    this.currentWeekday = moment(date).weekday() + 1;
+  }
+
+  setDayClass(d:number) {
+    if (d === this.currentWeekday) {
+      return 'chosen';
+    }
+  }
+
+  dateChange(e:any) {
+    this.currentDate = e;
+    this.getDate();
   }
 }

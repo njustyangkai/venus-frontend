@@ -7,7 +7,7 @@
   <div class="h-20"></div>
   <div class="row">
     <div class="col-md-3 date">
-      <ngb-datepicker #dp [(ngModel)]="model" (navigate)="date = $event.next"></ngb-datepicker>
+      <ngb-datepicker [(ngModel)]="currentDate" (ngModelChange)="dateChange($event)"></ngb-datepicker>
     </div>
     <div class="class-table-wrapper col-md-9">
       <table class="class-table">
@@ -26,13 +26,13 @@
         <tbody>
         <tr *ngFor="let clock of clocks">
           <td>{{clock}}</td>
-          <td></td>
-          <td></td>
-          <td></td>
-          <td></td>
-          <td></td>
-          <td></td>
-          <td></td>
+          <td [ngClass]="setDayClass(1)"></td>
+          <td [ngClass]="setDayClass(2)"></td>
+          <td [ngClass]="setDayClass(3)"></td>
+          <td [ngClass]="setDayClass(4)"></td>
+          <td [ngClass]="setDayClass(5)"></td>
+          <td [ngClass]="setDayClass(6)"></td>
+          <td [ngClass]="setDayClass(7)"></td>
         </tr>
         </tbody>
       </table>
