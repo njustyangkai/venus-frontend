@@ -30,10 +30,6 @@
     text-align: center;
 }
 
-.login-form .px-input-wrapper {
-    margin-bottom: 20px;
-}
-
 .login-form input {
     width: 320px !important;
 }
