@@ -8,12 +8,14 @@ import { FullRoutingModule } from './full-routing.module';
 import { HttpService } from '../util/http.service';
 import { NavbarComponent } from './navbar/navbar.component';
 import { SidebarComponent } from './sidebar/sidebar.component';
+import { ClassComponent } from '../class/class.component';
 
 @NgModule({
   declarations: [
     FullComponent,
     NavbarComponent,
-    SidebarComponent
+    SidebarComponent,
+    ClassComponent
   ],
   imports: [
     SharedModule,

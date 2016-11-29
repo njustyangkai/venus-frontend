@@ -1,6 +1,7 @@
 import { NgModule } from '@angular/core';
 import { RouterModule, Routes } from '@angular/router';
 import { FullComponent } from './full.component';
+import { ClassComponent } from '../class/class.component';
 
 const routes = [
   {
@@ -10,7 +11,17 @@ const routes = [
   },
   {
     path: 'main',
-    component: FullComponent
+    component: FullComponent,
+    children: [
+      {
+        path: '',
+        redirectTo: 'class'
+      },
+      {
+        path: 'class',
+        component: ClassComponent
+      }
+    ]
   }
 ];
 

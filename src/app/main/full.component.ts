@@ -6,13 +6,9 @@ import { Component } from '@angular/core';
 
 export class FullComponent {
   isCollapsed:boolean = false;
-  switchSidebar:string = 'home';
 
   collapse(e:any) {
     this.isCollapsed = e;
   }
 
-  switch(e:any) {
-    this.switchSidebar = e;
-  }
 }
