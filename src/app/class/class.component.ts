@@ -71,22 +71,7 @@ export class ClassComponent {
   setDate(d:number) {
     let tmp = this.currentDate.year + '-' + this.currentDate.month + '-' + this.currentDate.day;
     let date = new Date(tmp);
-    switch (d) {
-      case 1:
-        return moment(moment(date).weekday(0)).format('MM-DD');
-      case 2:
-        return moment(moment(date).weekday(1)).format('MM-DD');
-      case 3:
-        return moment(moment(date).weekday(2)).format('MM-DD');
-      case 4:
-        return moment(moment(date).weekday(3)).format('MM-DD');
-      case 5:
-        return moment(moment(date).weekday(4)).format('MM-DD');
-      case 6:
-        return moment(moment(date).weekday(5)).format('MM-DD');
-      case 7:
-        return moment(moment(date).weekday(6)).format('MM-DD');
-    }
+    return moment(moment(date).weekday(d - 1)).format('MM-DD');
   }
 
   getDate() {
