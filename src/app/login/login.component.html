@@ -22,7 +22,8 @@
           </div>
         </div>
       </form>
-      <button class="px-btn px-btn-primary" [disabled]="!loginForm.form.valid">登录</button>
+      <button class="px-btn px-btn-primary"
+              [disabled]="!loginForm.form.valid" (click)="login()">登录</button>
     </div>
   </div>
 </div>
