@@ -9,9 +9,11 @@ import { HttpService } from '../util/http.service';
 import { NavbarComponent } from './navbar/navbar.component';
 import { SidebarComponent } from './sidebar/sidebar.component';
 import { ClassComponent } from '../class/class.component';
+import { LoginComponent } from '../login/login.component';
 
 @NgModule({
   declarations: [
+    LoginComponent,
     FullComponent,
     NavbarComponent,
     SidebarComponent,
