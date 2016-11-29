@@ -90,4 +90,5 @@ export class ClassComponent {
     this.currentDate = e;
     this.getDate();
   }
+  
 }
