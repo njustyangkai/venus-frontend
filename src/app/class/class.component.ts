@@ -67,6 +67,12 @@ export class ClassComponent {
     this.getDate();
   }
 
+  setDate(d:number) {
+    if (d === this.currentWeekday) {
+      return this.currentDate.month + '-' + this.currentDate.day;
+    }
+  }
+
   getDate() {
     let d = this.currentDate.year + '-' + this.currentDate.month + '-' + this.currentDate.day;
     let date = new Date(d);
