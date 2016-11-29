@@ -2,26 +2,27 @@
 /* login
 /****************************/
 .login-wrapper {
-    background-color: #fcfcfc;
     position: absolute;
     top: 0;
     bottom: 0;
     left: 0;
     right: 0;
+    background: url(../../../public/images/login_bg.jpg) no-repeat fixed center center;
 }
 
 .login-box {
-    width: 350px;
+    width: 380px;
     margin: 0 auto;
-    margin-top: 200px;
-    border: 1px solid #eee;
-    padding: 30px 0;
+    margin-top: 150px;
+    border: 1px solid #ccc;
+    padding: 50px 0;
+    border-radius: 3px;
 }
 
-.login-logo {
+.login-logo h1 {
     text-align: center;
-    color: #e74c3c;
-    font-size: 24px;
+    color: red;
+    font-size: 32px;
     font-weight: normal;
     padding-bottom: 40px;
 }
