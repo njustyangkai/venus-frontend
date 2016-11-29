@@ -48,6 +48,7 @@ export class ClassComponent {
   currentWeekday:number;
 
   constructor(private _i18n:I18n) {
+    moment.locale('zh-CN');
     this._i18n.language = 'zh';
     this.clocks = [
       '08:00', '09:00', '10:00', '11:00', '12:00', '13:00', '14:00',
@@ -69,7 +70,9 @@ export class ClassComponent {
 
   setDate(d:number) {
     if (d === this.currentWeekday) {
-      return this.currentDate.month + '-' + this.currentDate.day;
+      let d = this.currentDate.year + '-' + this.currentDate.month + '-' + this.currentDate.day;
+      let date = new Date(d);
+      return moment(date).format('MM-DD');
     }
   }
 
