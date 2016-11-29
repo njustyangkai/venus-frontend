@@ -1,5 +1,12 @@
 /*****************************/
 /* global
+
+    basic gray: 1-#4d5761, 2-#7c868d, 3-#c2c6c9
+    basic primary: #00abff
+    basic attention: #f7c515
+    basic success: #73cf22
+    basic alarm: #ff625d
+
 /****************************/
 body {
     color: #4d5761;

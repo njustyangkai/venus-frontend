@@ -2,3 +2,36 @@
   <h1>My Classes</h1>
   <small>You can check your classes here.</small>
 </section>
+
+<section class="px-content">
+  <div class="h-20"></div>
+  <div class="class-table-wrapper">
+    <table class="class-table">
+      <thead>
+      <tr>
+        <th></th>
+        <th>一</th>
+        <th>二</th>
+        <th>三</th>
+        <th>四</th>
+        <th>五</th>
+        <th>六</th>
+        <th>日</th>
+      </tr>
+      </thead>
+      <tbody>
+      <tr *ngFor="let clock of clocks">
+        <td>{{clock}}</td>
+        <td></td>
+        <td></td>
+        <td></td>
+        <td></td>
+        <td></td>
+        <td></td>
+        <td></td>
+      </tr>
+      </tbody>
+    </table>
+  </div>
+
+</section>
