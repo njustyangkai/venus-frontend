@@ -1,0 +1,114 @@
+.class-table-wrapper {
+    min-width: 744px;
+    overflow: auto;
+}
+
+.class-table {
+    width: 100%;
+}
+
+.class-table td, .class-table th {
+    line-height: 1;
+    vertical-align: middle;
+}
+
+.class-table th {
+    text-align: center;
+    font-size: 14px;
+    color: #4d5761;
+    font-weight: normal;
+    height: 35px;
+    background: #fff;
+    border-top-color: #e6e6e6;
+    border-bottom-color: #e6e6e6;
+    border-right-color: #f2f2f2;
+    border-style: solid;
+    border-width: 0 0 1px 0;
+}
+
+.class-table tr th:first-child {
+    width: 80px;
+}
+
+.class-table tr th:last-child {
+    border-right: 0;
+}
+
+.class-table td {
+    font-size: 12px;
+    color: #7c868d;
+    text-align: left;
+    padding-left: 20px;
+    height: 45px;
+    border-color: #f2f2f2;
+    border-style: solid;
+    border-width: 0 1px 1px 0;
+}
+
+.class-table tr td:first-child {
+    padding-left: 0;
+    text-align: center;
+}
+
+.class-table tr:last-child td {
+    border-bottom-color: #e6e6e6;
+}
+
+.class-table tr td:last-child {
+    border-right: 0;
+}
+
+.date {
+    font-size: 14px;
+}
+
+.date table {
+    border: 1px solid #f2f2f2;
+}
+
+.date table tbody:first-child .btn-secondary {
+    color: #c2c6c9;
+    background-color: #fff;
+    border: 0;
+    line-height: 1;
+    padding: 10px 15px;
+    font-size: 14px;
+}
+
+.date table tbody:first-child .btn-secondary:hover {
+    color: #7c868d;
+}
+
+.date table tbody:first-child .btn-secondary:focus {
+    color: #4d5761;
+}
+
+.date table tbody:first-child .custom-select {
+    font-size: 14px;
+    padding: 5px 5px;
+    width: 70px;
+    outline: none;
+    cursor: pointer;
+    border: 0;
+    line-height: 1;
+    color: #7c868d;
+}
+
+.date table .weekday {
+    padding: 10px 0;
+    color: #7c868d;
+}
+
+.date .day .btn-secondary {
+    padding: 10px;
+    color: #4d5761;
+}
+
+.date .day .btn-secondary.text-muted {
+    color: #c2c6c9;
+}
+
+.date .day .btn-secondary.bg-primary {
+    color: #fff !important;
+    background-color: #00abff;
+}
