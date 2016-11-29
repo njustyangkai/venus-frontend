@@ -1,0 +1,6 @@
+<px-navbar (collapse)="collapse($event)" (switchSidebar)="switch($event)"></px-navbar>
+<px-sidebar [isCollapsed]="isCollapsed" [switchSidebar]="switchSidebar"></px-sidebar>
+<div class="px-content-wrapper" [class.px-sidebar-collapsed-content]="isCollapsed || switchSidebar === 'home'">
+    <router-outlet></router-outlet>
+</div>
+<template ngbModalContainer></template>

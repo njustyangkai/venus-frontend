@@ -1,0 +1,11 @@
+/node_modules/
+/dist/
+/npm-debug.log
+/typings/
+.idea
+dist
+dist/dev
+docs
+lib
+test
+tmp

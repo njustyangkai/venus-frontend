@@ -1,0 +1,65 @@
+/*****************************/
+/* modal
+/****************************/
+.modal-dialog {
+    margin-top: 100px;
+}
+
+.modal-content {
+    min-height: 310px;
+    border: 0;
+    padding: 30px;
+    font-size: 0;
+}
+
+.px-modal-header h4 {
+    font-size: 24px;
+    color: #4d5761;
+}
+
+.px-modal-header a {
+    position: absolute;
+    width: 15px;
+    height: 15px;
+    top: 30px;
+    right: 30px;
+    background-image: url("../../images/modal_btn_close.png");
+}
+
+.px-modal-header a:hover,
+.px-modal-header a:focus {
+    background-image: url("../../images/modal_btn_close_hover.png");
+}
+
+.px-modal-body {
+    text-align: center;
+    min-height: 190px;
+}
+
+.px-modal-footer {
+    text-align: center;
+}
+
+.px-modal-footer button:not(:first-child) {
+    margin-left: 10px;
+}
+
+.px-modal-confirm {
+    padding-top: 30px;
+}
+
+.px-modal-confirm img {
+    width: 60px;
+    height: 60px;
+}
+
+.px-modal-confirm h5 {
+    font-size: 18px;
+    color: #4d5761;
+    padding: 11px 70px;
+}
+
+.px-modal-confirm small {
+    font-size: 14px;
+    color: #c2c6c9;
+}

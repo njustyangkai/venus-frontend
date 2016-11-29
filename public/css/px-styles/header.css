@@ -1,0 +1,81 @@
+/*****************************/
+/* header
+/****************************/
+.px-header {
+    position: fixed;
+    top: 0;
+    right: 0;
+    left: 0;
+    z-index: 1030;
+    display: block;
+}
+
+.px-header .logo-mini {
+    background-color: #2c3e50;
+    color: #00abff;
+    display: block;
+    float: left;
+    height: 50px;
+    font-size: 20px;
+    line-height: 50px;
+    text-align: center;
+    width: 100px;
+    padding: 15px 0;
+    font-weight: 300;
+    overflow: hidden;
+}
+
+.px-header .logo-mini .logo-img {
+    height: 20px;
+    margin-top: -5px;
+}
+
+.px-header .logo-lg {
+    background-color: #2c3e50;
+    color: #00abff;
+    display: block;
+    float: left;
+    height: 50px;
+    font-size: 20px;
+    line-height: 50px;
+    text-align: center;
+    width: 200px;
+    padding: 15px 0;
+    font-weight: 300;
+    overflow: hidden;
+}
+
+.px-header .logo-lg .logo-img {
+    height: 20px;
+    margin-top: -5px;
+}
+
+.px-header .logo-lg span {
+    display: block;
+}
+
+.px-header .logo-mini span {
+    display: block;
+}
+
+.px-navbar {
+    background-color: #2c3e50;
+    color: #fff;
+    display: block;
+    border: none;
+    z-index: 1000;
+    height: 50px;
+    border-radius: 0;
+}
+
+.px-navbar .px-navbar-link {
+    color: #fff;
+    float: left;
+    font-size: 14px;
+    padding: 18px 14px;
+}
+
+.px-navbar .px-navbar-link:hover {
+    color: #f6f6f6;
+    background-color: rgba(255, 255, 255, 0.1);
+}

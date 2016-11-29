@@ -1,0 +1,37 @@
+/*****************************/
+/* form
+/****************************/
+.px-form-control > label {
+    margin-bottom: 0;
+    font-size: 14px;
+    color: #4d5761;
+    padding-right: 20px;
+    width: 200px;
+    text-align: right;
+    cursor: pointer;
+}
+
+.px-form-control .px-input-wrapper {
+    display: inline-block;
+}
+
+.px-form-control .px-select {
+    display: inline-block;
+}
+
+.px-form-control .px-radio-group {
+    display: inline-block;
+}
+
+.px-form-control .px-radio-group .px-radio-wrapper:not(:first-child){
+    margin-left: 70px;
+}
+
+.px-form-buttons {
+    margin-top: 20px;
+    margin-left: 200px;
+}
+
+.px-form-buttons button:not(:first-child) {
+    margin-left: 10px;
+}

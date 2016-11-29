@@ -1,0 +1,22 @@
+<header class="px-header">
+  <a role="button" class="logo-mini hidden-md-up" routerLink="/main">
+    <span>
+      VS
+    </span>
+  </a>
+  <a role="button" class="logo-lg hidden-sm-down" routerLink="/main">
+    <span>
+      VENUS
+    </span>
+  </a>
+
+  <nav class="px-navbar">
+    <a class="px-navbar-link hidden-sm-down"
+       role="button" (click)="collapseSidebar($event)">
+      <i class="fa fa-bars fa-fw"></i>
+    </a>
+    <a class="px-navbar-link" role="button">
+      起步
+    </a>
+  </nav>
+</header>

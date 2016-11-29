@@ -1,0 +1,74 @@
+/*****************************/
+/* checkbox
+/****************************/
+.px-checkbox {
+    -webkit-appearance: none;
+    background-size: 16px 16px;
+    background-color: #fff;
+    border: 1px solid #ddd;
+    margin-right: 0;
+    height: 16px;
+    width: 16px;
+    outline: none;
+    vertical-align: bottom;
+    margin-top: 0;
+    cursor: pointer;
+}
+
+.px-checkbox:hover {
+    background-image: url("../../images/icon_select_normal.png");
+    outline: none;
+    border: none;
+}
+
+.px-checkbox:checked {
+    background-image: url("../../images/icon_select_selected.png");
+    outline: none;
+    border: none;
+}
+
+.px-checkbox-wrapper {
+    margin-bottom: 30px;
+}
+
+.px-checkbox-wrapper span {
+    font-size: 14px;
+    color: #7c868d;
+    margin-left: 6px;
+    cursor: pointer;
+}
+
+.px-checkbox:checked + span {
+    color: #4d5761;
+}
+
+.px-checkbox-group .px-checkbox-wrapper:not(:first-child){
+    margin-left: 20px;
+}
+
+.px-checkbox:disabled,
+.px-checkbox:disabled:hover {
+    background-color: #f2f2f2;
+    background-image: none;
+    border: 1px solid #ddd;
+    outline: none;
+    cursor: not-allowed;
+}
+
+.px-checkbox:disabled + span {
+    color: #c2c6c9;
+    cursor: not-allowed;
+}
+
+.px-checkbox:disabled:checked,
+.px-checkbox:disabled:checked:hover {
+    background-image: url("../../images/icon_select_disabled_checked.png");
+    outline: none;
+    border: none;
+    cursor: not-allowed;
+}
+
+.px-checkbox:disabled:checked + span {
+    color: #4d5761;
+    cursor: not-allowed;
+}

@@ -1,0 +1,39 @@
+/*****************************/
+/* global
+/****************************/
+body {
+    color: #4d5761;
+    font-size: 12px;
+    background-color: #fff;
+}
+
+body, h1, h2, h3, h4, h5, h6, .h1, .h2, .h3, .h4, .h5, .h6, span, p, button, input, optgroup, select, textarea, label, a, pre, .tooltip, .popover {
+    font-family: "Helvetica Neue", "Luxi Sans", "DejaVu Sans", Tahoma, "Hiragino Sans GB", STHeiti, "Microsoft YaHei", sans-serif !important;
+}
+
+body, span, h1, h2, h3, h4, h5, h6 {
+    line-height: 1 !important;
+}
+
+h1, h2, h3, h4, h5, h6 {
+    margin: 0 !important;
+}
+
+a:hover, a:focus {
+    text-decoration: none;
+}
+
+button:focus {
+    outline: none !important;
+}
+
+.h-20 {
+    height: 20px;
+}
+
+input::-webkit-input-placeholder,
+textarea::-webkit-input-placeholder,
+input:-moz-placeholder,
+textarea:-moz-placeholder {
+    color: #c2c6c9;
+}

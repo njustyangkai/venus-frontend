@@ -1,0 +1,26 @@
+.breadcrumb {
+    padding: 14px 0 0 0;
+    background: none;
+    margin: 0;
+    border: none;
+    border-radius: 0;
+}
+
+.breadcrumb > li + li:before {
+    padding-left: 10px;
+    padding-right: 10px;
+    content: "/";
+    color: #ddd;
+}
+
+.breadcrumb > li {
+    color: #7c868d;
+    font-size: 12px;
+}
+
+.breadcrumb a,
+.breadcrumb a:hover,
+.breadcrumb a:focus {
+    color: #3fb4ff;
+    font-size: 12px;
+}

@@ -1,0 +1,18 @@
+<aside class="px-sidebar-wrapper"
+       [class.px-sidebar-is-visible]="isVisible"
+       [class.px-sidebar-collapsed]="isCollapsed">
+  <div class="px-sidebar">
+    <ul class="px-sidebar-menu">
+      <li routerLinkActive="active">
+        <a role="button" routerLink="/main/css/alert">
+          <i class="fa fa-circle-o"></i>
+          <span>Alert</span>
+        </a>
+      </li>
+    </ul>
+  </div>
+</aside>
+
+<div class="px-sidebar-toggle hidden-md-up">
+  <a role="button" (click)="isVisible = !isVisible"><i class="fa fa-bars"></i></a>
+</div>

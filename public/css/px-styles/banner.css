@@ -1,0 +1,42 @@
+/*****************************/
+/* banner
+/****************************/
+.px-banner {
+    position: fixed;
+    padding: 150px 0 0 0;
+    top: 50px;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    text-align: center;
+    text-shadow: 0 1px 0 rgba(0, 0, 0, .1);
+    background-color: #6f5499;
+    background-image: linear-gradient(to bottom, #563d7c 0, #6f5499 100%);
+    background-repeat: repeat-x;
+}
+
+.px-banner-container {
+    width: 900px;
+    margin: 0 auto;
+    padding: 0 15px;
+}
+
+.px-banner-logo {
+    margin: 0 auto 20px;
+    display: block;
+}
+
+.px-banner-logo img {
+    height: 100px;
+}
+
+.px-banner-title {
+    font-size: 96px;
+    color: #fff;
+}
+
+.px-banner-subtitle {
+    font-size: 30px;
+    color: #fff;
+    margin: 30px 0 auto;
+}

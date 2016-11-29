@@ -1,0 +1,21 @@
+/*****************************/
+/* bootstrap cover css
+/****************************/
+.row {
+    margin-left: 0;
+    margin-right: 0;
+}
+
+.btn.disabled, .btn:disabled {
+    opacity: .5;
+}
+
+.dropdown-toggle:after {
+    border-top: 3px solid;
+    border-right: 3px solid transparent;
+    border-left: 3px solid transparent;
+}
+
+.dropdown-menu {
+    min-width: inherit;
+}

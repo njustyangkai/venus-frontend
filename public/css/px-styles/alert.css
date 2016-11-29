@@ -1,0 +1,42 @@
+/*****************************/
+/* alert
+/****************************/
+.px-alert {
+    position: fixed;
+    top: 50px;
+    left: calc(50% - 300px);
+    height: 40px;
+    width: 600px;
+    font-size: 14px;
+    color: #fff;
+    border-radius: 3px;
+    text-align: center;
+    padding: 13px 0;
+    z-index: 9999;
+}
+
+.px-alert-success {
+    background-color: #73cf22;
+}
+
+.px-alert-attention {
+    background-color: #f7c515;
+}
+
+.px-alert-alarm {
+    background-color: #ff625d;
+}
+
+.px-alert-close {
+    position: absolute;
+    top: 12px;
+    right: 10px;
+    width: 15px;
+    height: 15px;
+    background-image: url("../../../public/images/alert_btn_close.png");
+}
+
+.px-alert-close:hover,
+.px-alert-close:focus {
+    background-image: url("../../../public/images/alert_btn_close_hover.png");
+}
