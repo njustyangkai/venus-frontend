@@ -1,4 +1,4 @@
-import { Component, Output, EventEmitter } from '@angular/core';
+import { Component } from '@angular/core';
 
 @Component({
   selector: 'px-navbar',
@@ -6,13 +6,5 @@ import { Component, Output, EventEmitter } from '@angular/core';
 })
 
 export class NavbarComponent {
-
-  @Output() collapse = new EventEmitter();
-  isCollapsed:boolean = false;
-
-  collapseSidebar(e:any) {
-    this.isCollapsed = !this.isCollapsed;
-    this.collapse.emit(this.isCollapsed);
-  }
 
 }

@@ -8,6 +8,13 @@
     left: 0;
     z-index: 1030;
     display: block;
+    height: 50px;
+    background: #e74c3c;
+}
+
+.px-header-container {
+    width: 1190px;
+    margin: 0 auto;
 }
 
 .px-header .logo-mini {

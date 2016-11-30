@@ -1,22 +1,24 @@
 <header class="px-header">
-  <a role="button" class="logo-mini hidden-md-up" routerLink="/main">
+  <div class="px-header-container">
+    <a role="button" class="logo-mini hidden-md-up" routerLink="/main">
     <span>
       VS
     </span>
-  </a>
-  <a role="button" class="logo-lg hidden-sm-down" routerLink="/main">
+    </a>
+    <a role="button" class="logo-lg hidden-sm-down" routerLink="/main">
     <span>
       VENUS
     </span>
-  </a>
+    </a>
 
-  <nav class="px-navbar">
-    <a class="px-navbar-link"
-       role="button" (click)="collapseSidebar($event)">
-      <i class="fa fa-bars fa-fw"></i>
-    </a>
-    <a class="px-navbar-link" role="button">
-      Contact Me
-    </a>
-  </nav>
+    <nav class="px-navbar">
+      <a class="px-navbar-link"
+         role="button">
+        <i class="fa fa-bars fa-fw"></i>
+      </a>
+      <a class="px-navbar-link" role="button">
+        Contact Me
+      </a>
+    </nav>
+  </div>
 </header>
