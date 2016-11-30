@@ -6,5 +6,9 @@ import { Component } from '@angular/core';
 })
 
 export class NavbarComponent {
+  username:string;
 
+  constructor() {
+    this.username = window.localStorage.getItem('username');
+  }
 }
