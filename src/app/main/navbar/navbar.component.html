@@ -27,8 +27,8 @@
           <span class="hidden-sm-down">{{username}}</span>
         </a>
         <div #user class="dropdown-menu user-dropdown-menu">
-          <button class="px-btn px-btn-default">修改密码</button>
-          <button class="px-btn px-btn-delete" (click)="logout()">退出</button>
+          <a role="button">修改密码</a>
+          <a role="button" (click)="logout()">退出</a>
         </div>
       </div>
     </nav>

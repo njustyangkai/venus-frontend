@@ -41,6 +41,12 @@
     color: #7c868d;
 }
 
+.px-content-header .operate {
+    position: absolute;
+    top: 50px;
+    right: 40px;
+}
+
 .px-content {
     position: relative;
     padding-left: 40px;

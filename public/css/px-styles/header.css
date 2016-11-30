@@ -88,14 +88,27 @@
 }
 
 .user-dropdown-menu {
-    padding: 10px;
     text-align: center;
     border-radius: 0;
     margin: 0;
-    border: 1px solid #e74c3c;
+    border: 2px solid #e74c3c;
     border-top: 0;
+    width: 120px;
 }
 
-.user-dropdown-menu button:not(:last-child) {
-    margin-bottom: 10px;
+.user-dropdown-menu a {
+    font-size: 14px;
+    color: #7c868d;
+    display: block;
+    background-color: #fff;
+    width: 100%;
+    padding: 10px 0;
+}
+
+.user-dropdown-menu a:hover {
+    background-color: #f2f2f2;
+}
+
+.user-dropdown-menu a:focus {
+    background-color: #f8f8f8;
 }

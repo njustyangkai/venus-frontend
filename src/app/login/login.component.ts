@@ -29,8 +29,9 @@ export class LoginComponent {
         (res:any)=> {
           res = res.json();
           if (res.success) {
-            window.localStorage.setItem('userId', res.data.userId);
-            window.localStorage.setItem('username', res.data.username);
+            window.localStorage.setItem('userid', res.data.user.id);
+            window.localStorage.setItem('username', res.data.user.username);
+            window.localStorage.setItem('role', res.data.role);
             this.router.navigate(['/main']);
           } else {
             this.alarmMsg = '用户名或密码错误！';

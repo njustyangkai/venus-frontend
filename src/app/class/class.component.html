@@ -1,6 +1,9 @@
 <section class="px-content-header">
   <h1>My Classes</h1>
   <small>You can check your classes here.</small>
+  <div class="operate">
+    <button class="px-btn px-btn-default" (click)="getNow();dp.navigateTo()">今天</button>
+  </div>
 </section>
 
 <section class="px-content">
@@ -10,9 +13,6 @@
       <div class="date">
         <ngb-datepicker #dp [(ngModel)]="currentDate"
                         (ngModelChange)="dateChange($event)"></ngb-datepicker>
-      </div>
-      <div class="date-operate">
-        <button class="px-btn px-btn-default" (click)="getNow();dp.navigateTo()">今天</button>
       </div>
     </div>
     <div class="class-table-wrapper col-md-9">
