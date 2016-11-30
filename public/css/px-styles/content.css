@@ -2,8 +2,7 @@
 /* content
 /****************************/
 .px-content-wrapper {
-    width: 1190px;
-    margin: 0 auto;
+    margin-left: 200px;
     padding-top: 50px;
     padding-left: 0;
     padding-right: 0;
