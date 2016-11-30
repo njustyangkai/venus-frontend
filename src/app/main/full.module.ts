@@ -7,16 +7,15 @@ import { FullComponent } from './full.component';
 import { FullRoutingModule } from './full-routing.module';
 import { HttpService } from '../util/http.service';
 import { NavbarComponent } from './navbar/navbar.component';
-import { SidebarComponent } from './sidebar/sidebar.component';
 import { ClassComponent } from '../class/class.component';
 import { LoginComponent } from '../login/login.component';
+import { FullService } from './full.service';
 
 @NgModule({
   declarations: [
     LoginComponent,
     FullComponent,
     NavbarComponent,
-    SidebarComponent,
     ClassComponent
   ],
   imports: [
@@ -25,7 +24,8 @@ import { LoginComponent } from '../login/login.component';
     FullRoutingModule
   ],
   providers: [
-    HttpService
+    HttpService,
+    FullService
   ]
 })
 

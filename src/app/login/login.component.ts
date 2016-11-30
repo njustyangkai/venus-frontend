@@ -25,10 +25,12 @@ export class LoginComponent {
   }
 
   login() {
-    this.http.post(ApiConfig.LOGIN, JSON.stringify(this.loginForm.form.value)).subscribe(
+    this.http.post(ApiConfig.LOGIN, this.loginForm.form.value).subscribe(
         (res:any)=> {
           res = res.json();
           if (res.success) {
+            window.localStorage.setItem('userId', res.data.userId);
+            window.localStorage.setItem('username', res.data.username);
             this.router.navigate(['/main']);
           } else {
             this.alarmMsg = '用户名或密码错误！';

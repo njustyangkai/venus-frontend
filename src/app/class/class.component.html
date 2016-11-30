@@ -20,25 +20,16 @@
         <thead>
         <tr>
           <th></th>
-          <th>一 {{setDate(1)}}</th>
-          <th>二 {{setDate(2)}}</th>
-          <th>三 {{setDate(3)}}</th>
-          <th>四 {{setDate(4)}}</th>
-          <th>五 {{setDate(5)}}</th>
-          <th>六 {{setDate(6)}}</th>
-          <th>日 {{setDate(7)}}</th>
+          <th *ngFor="let day of weekdays; let i = index">
+            {{day}} {{setDate(i + 1)}}
+          </th>
         </tr>
         </thead>
         <tbody>
         <tr *ngFor="let clock of clocks">
           <td>{{clock}}</td>
-          <td [ngClass]="setDayClass(1)"></td>
-          <td [ngClass]="setDayClass(2)"></td>
-          <td [ngClass]="setDayClass(3)"></td>
-          <td [ngClass]="setDayClass(4)"></td>
-          <td [ngClass]="setDayClass(5)"></td>
-          <td [ngClass]="setDayClass(6)"></td>
-          <td [ngClass]="setDayClass(7)"></td>
+          <td *ngFor="let day of weekdays; let i = index" [ngClass]="setDayClass(i + 1)">
+          </td>
         </tr>
         </tbody>
       </table>

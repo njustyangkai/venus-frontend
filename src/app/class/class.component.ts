@@ -43,6 +43,7 @@ export class CustomDatepickerI18n extends NgbDatepickerI18n {
 
 export class ClassComponent {
   clocks:string[];
+  weekdays:any;
 
   currentDate:any;
   currentWeekday:number;
@@ -55,6 +56,7 @@ export class ClassComponent {
       '15:00', '16:00', '17:00', '18:00', '19:00', '20:00', '21:00',
       '22:00'
     ];
+    this.weekdays = ['一', '二', '三', '四', '五', '六', '日'];
     this.getNow();
   }
 
