@@ -1,4 +1,4 @@
-const baseUrl:string = '/api';
+const BASE_URL:string = '/api/';
 export const ApiConfig = {
-  demo: baseUrl + '/demo/'
+  LOGIN: BASE_URL + 'login'
 };

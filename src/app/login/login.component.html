@@ -27,3 +27,8 @@
     </div>
   </div>
 </div>
+
+<div class="px-alert px-alert-alarm" *ngIf="isShowAlarm">
+  <a role="button" class="px-alert-close" (click)="isShowAlarm = false"></a>
+  <b>错误！</b>{{alarmMsg}}
+</div>
