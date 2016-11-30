@@ -18,10 +18,19 @@
       <a class="px-navbar-link" role="button">
         Contact Me
       </a>
-      <a class="px-navbar-link pull-right" role="button">
-        <i class="fa fa-user-md"></i>
-        {{username}}
-      </a>
+      <div class="pull-right"
+           (mouseover)="user.style.display = 'block'"
+           (mouseout)="user.style.display = 'none'"
+           ngbDropdown>
+        <a class="px-navbar-link" role="button" ngbDropdownToggle>
+          <i class="fa fa-user-o fa-fw"></i>
+          <span class="hidden-sm-down">{{username}}</span>
+        </a>
+        <div #user class="dropdown-menu user-dropdown-menu">
+          <button class="px-btn px-btn-default">修改密码</button>
+          <button class="px-btn px-btn-delete" (click)="logout()">退出</button>
+        </div>
+      </div>
     </nav>
   </div>
 </header>

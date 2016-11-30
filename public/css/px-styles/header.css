@@ -86,3 +86,16 @@
     color: #f6f6f6;
     background-color: rgba(255, 255, 255, 0.1);
 }
+
+.user-dropdown-menu {
+    padding: 10px;
+    text-align: center;
+    border-radius: 0;
+    margin: 0;
+    border: 1px solid #e74c3c;
+    border-top: 0;
+}
+
+.user-dropdown-menu button:not(:last-child) {
+    margin-bottom: 10px;
+}

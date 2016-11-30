@@ -1,4 +1,5 @@
 import { Component } from '@angular/core';
+import { Router } from '@angular/router';
 
 @Component({
   selector: 'px-navbar',
@@ -8,7 +9,12 @@ import { Component } from '@angular/core';
 export class NavbarComponent {
   username:string;
 
-  constructor() {
+  constructor(private router:Router) {
     this.username = window.localStorage.getItem('username');
+  }
+
+  logout() {
+    window.localStorage.clear();
+    this.router.navigate(['/login']);
   }
 }
