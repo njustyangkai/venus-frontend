@@ -12,13 +12,16 @@ import { ApiConfig } from '../../util/ApiConfig';
 export class NavbarComponent {
   username:string;
 
+  isPwdRightFlag:boolean = true;
+
+  isShowSuccess:boolean = false;
+  successMsg:string;
+
   @ViewChild('modal1_template') modal1_template:any;
   modal1:any;
 
   @ViewChild('modal2_template') modal2_template:any;
   modal2:any;
-
-  @ViewChild('modifyPwdForm') modifyPwdForm:any;
 
   constructor(private router:Router,
               private modalService:NgbModal,
@@ -45,14 +48,42 @@ export class NavbarComponent {
     this.router.navigate(['/login']);
   }
 
-  modifyPwd() {
-    this.http.put(ApiConfig.USER + '/modifyPwd/' + window.localStorage.getItem('userId'), this.modifyPwdForm.form.value).subscribe(
+  modifyPwd(value:any) {
+    this.isPwdRight(value.password).subscribe(
         (res:any)=> {
-          console.log(res);
-        },
-        (error:any)=> {
-          console.log(error);
+          res = res.json();
+          if (res.success) {
+            this.http.put(ApiConfig.USER + '/modifyPwd/' + window.localStorage.getItem('userId'), value).subscribe(
+                (res:any)=> {
+                  res = res.json();
+                  if (res.success) {
+                    this.modal2.close();
+                    this.successMsg = '修改密码成功。';
+                    this.isShowSuccess = true;
+                    setTimeout(()=> {
+                      this.isShowSuccess = false;
+                    }, 3000);
+                  }
+                },
+                (error:any)=> {
+                  console.log(error);
+                }
+            );
+          } else {
+            this.isPwdRightFlag = false;
+          }
         }
-    )
+    );
+  }
+
+  isPwdRight(value:any) {
+    return this.http.post(ApiConfig.USER + '/isPwdRight', {
+      userId: window.localStorage.getItem('userId'),
+      password: value
+    });
+  }
+
+  pwdChange(value:any) {
+    this.isPwdRightFlag = true;
   }
 }

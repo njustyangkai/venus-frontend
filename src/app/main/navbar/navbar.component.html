@@ -84,10 +84,15 @@
                  required
                  #input1="ngModel"
                  [(ngModel)]="password"
-                 name="password">
+                 name="password"
+                 (ngModelChange)="pwdChange($event)">
           <span class="validation"
                 *ngIf="input1.errors?.required && !input1.pristine">原密码不能为空</span>
+           <span class="validation"
+                 *ngIf="!input1.errors?.required && !isPwdRightFlag">原密码错误</span>
         </div>
+      </div>
+      <div class="px-form-control">
         <div class="px-input-wrapper">
           <input class="px-input lg"
                  required
@@ -99,6 +104,8 @@
           <span class="validation"
                 *ngIf="input2.errors?.required && !input2.pristine">新密码不能为空</span>
         </div>
+      </div>
+      <div class="px-form-control">
         <div class="px-input-wrapper">
           <input class="px-input lg"
                  required
@@ -117,11 +124,16 @@
   </div>
   <div class="px-modal-footer">
     <button class="px-btn px-btn-primary"
-            [disabled]="!modifyPwdForm.form.valid || input3.value !== input2.value"
-            (click)="modifyPwd()">确认
+            [disabled]="!modifyPwdForm.form.valid || input3.value !== input2.value || !isPwdRightFlag"
+            (click)="modifyPwd(modifyPwdForm.form.value)">确认
     </button>
     <button class="px-btn px-btn-cancel"
             (click)="modal2.close()">关闭
     </button>
   </div>
 </template>
+
+<div class="px-alert px-alert-success"
+     *ngIf="isShowSuccess">
+  <b>成功！</b>{{successMsg}}
+</div>
