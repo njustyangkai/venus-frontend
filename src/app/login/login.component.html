@@ -1,56 +1,57 @@
 <div class="login-wrapper"
      [style.width]="width + 'px'"
      [style.height]="height + 'px'">
-  <div class="login-box">
-    <div class="login-logo">
-      <h1>韩老师的教学平台</h1>
-    </div>
-    <div class="login-form">
-      <form class="px-form"
-            #loginForm="ngForm"
-            novalidate>
-        <div class="px-form-control">
-          <div class="px-input-wrapper">
-            <input class="px-input md"
-                   required
-                   type="text"
-                   #input1="ngModel"
-                   [(ngModel)]="username"
-                   name="username"
-                   placeholder="用户名">
-            <span class="validation"
-                  *ngIf="input1.errors?.required && !input1.pristine">名称不能为空</span>
-          </div>
+    <div class="login-box">
+        <div class="login-logo">
+            <h1>韩老师的教学平台</h1>
         </div>
-        <div class="px-form-control">
-          <div class="px-input-wrapper">
-            <input class="px-input md"
-                   required
-                   type="password"
-                   #input2="ngModel"
-                   [(ngModel)]="password"
-                   name="password"
-                   placeholder="密码">
+        <div class="login-form">
+            <form class="px-form"
+                  #loginForm="ngForm"
+                  novalidate>
+                <div class="px-form-control">
+                    <div class="px-input-wrapper">
+                        <input class="px-input md"
+                               required
+                               type="text"
+                               #input1="ngModel"
+                               [(ngModel)]="username"
+                               name="username"
+                               placeholder="用户名">
+            <span class="validation"
+                  *ngIf="input1.errors?.required && !input1.pristine">用户名不能为空</span>
+                    </div>
+                </div>
+                <div class="px-form-control">
+                    <div class="px-input-wrapper">
+                        <input class="px-input md"
+                               required
+                               type="password"
+                               #input2="ngModel"
+                               [(ngModel)]="password"
+                               name="password"
+                               placeholder="密码">
             <span class="validation"
                   *ngIf="input2.errors?.required && !input2.pristine">密码不能为空</span>
-          </div>
+                    </div>
+                </div>
+            </form>
+            <button class="px-btn px-btn-primary"
+                    [disabled]="!loginForm.form.valid"
+                    (click)="login()">登录
+            </button>
+            <div class="no-account">
+                <span>没有账号?</span> <a role="button"
+                                      (click)="gotoRegister()">立即注册</a>
+            </div>
         </div>
-      </form>
-      <button class="px-btn px-btn-primary"
-              [disabled]="!loginForm.form.valid"
-              (click)="login()">登录
-      </button>
-      <div class="no-account">
-        <span>没有账号?</span> <a role="button">立即注册</a>
-      </div>
     </div>
-  </div>
 </div>
 
 <div class="px-alert px-alert-alarm"
      *ngIf="isShowAlarm">
-  <a role="button"
-     class="px-alert-close"
-     (click)="isShowAlarm = false"></a>
-  <b>错误！</b>{{alarmMsg}}
+    <a role="button"
+       class="px-alert-close"
+       (click)="isShowAlarm = false"></a>
+    <b>错误！</b>{{alarmMsg}}
 </div>

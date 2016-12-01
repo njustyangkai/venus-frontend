@@ -1,0 +1,74 @@
+<div class="login-wrapper"
+     [style.width]="width + 'px'"
+     [style.height]="height + 'px'">
+    <div class="login-box">
+        <div class="login-logo">
+            <h1>韩老师的教学平台</h1>
+        </div>
+        <div class="login-form">
+            <form class="px-form"
+                  #registerForm="ngForm"
+                  novalidate>
+                <div class="px-form-control">
+                    <div class="px-input-wrapper">
+                        <input class="px-input md"
+                               required
+                               pattern="^[a-zA-Z0-9_]+$"
+                               type="text"
+                               #input1="ngModel"
+                               [(ngModel)]="username"
+                               name="username"
+                               placeholder="用户名">
+                        <span class="validation"
+                              *ngIf="input1.errors?.pattern && !isUsernameUsed">用户名只能由字母、数字和下划线组成</span>
+                        <span class="validation"
+                              *ngIf="input1.errors?.required && !input1.pristine">用户名不能为空</span>
+                        <span class="validation"
+                              *ngIf="isUsernameUsed">此用户名已经被占用</span>
+                    </div>
+                </div>
+                <div class="px-form-control">
+                    <div class="px-input-wrapper">
+                        <input class="px-input md"
+                               required
+                               type="password"
+                               #input2="ngModel"
+                               [(ngModel)]="password"
+                               name="password"
+                               placeholder="密码">
+                        <span class="validation"
+                              *ngIf="input2.errors?.required && !input2.pristine">密码不能为空</span>
+                    </div>
+                </div>
+                <div class="px-form-control">
+                    <div class="px-input-wrapper">
+                        <input class="px-input md"
+                               required
+                               type="password"
+                               #input3="ngModel"
+                               [(ngModel)]="confirmPassword"
+                               name="confirmPassword"
+                               placeholder="确认密码">
+                        <span class="validation"
+                              *ngIf="input3.errors?.required && !input3.pristine">确认密码不能为空</span>
+                        <span class="validation"
+                              *ngIf="!input3.errors?.required && input3.value !== input2.value">两次密码不一致</span>
+                    </div>
+                </div>
+            </form>
+            <button class="px-btn px-btn-primary"
+                    [disabled]="!registerForm.form.valid || input3.value !== input2.value || isUsernameUsed"
+                    (click)="register(registerForm.form.value)">注册
+            </button>
+            <div class="no-account">
+                <span>已有账号?</span> <a role="button"
+                                      (click)="gotoLogin()">直接登录</a>
+            </div>
+        </div>
+    </div>
+</div>
+
+<div class="px-alert px-alert-success"
+     *ngIf="isShowSuccess">
+    <b>成功！</b>{{successMsg}}
+</div>

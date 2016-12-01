@@ -14,9 +14,6 @@ export class LoginComponent implements OnInit {
   isShowAlarm:boolean = false;
   alarmMsg:string;
 
-  username:string;
-  password:string;
-
   @ViewChild('loginForm') loginForm:any;
 
   constructor(private router:Router, private http:HttpService) {
@@ -40,7 +37,7 @@ export class LoginComponent implements OnInit {
             window.localStorage.setItem('role', res.data.role);
             this.router.navigate(['/main']);
           } else {
-            this.alarmMsg = '用户名或密码错误！';
+            this.alarmMsg = res.message;
             this.isShowAlarm = true;
           }
         },
@@ -50,5 +47,8 @@ export class LoginComponent implements OnInit {
     );
   }
 
+  gotoRegister() {
+    this.router.navigate(['/register']);
+  }
 
 }

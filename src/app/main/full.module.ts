@@ -10,13 +10,15 @@ import { NavbarComponent } from '../navbar/navbar.component';
 import { ClassComponent } from '../class/class.component';
 import { LoginComponent } from '../login/login.component';
 import { FullService } from './full.service';
+import { RegisterComponent } from '../register/register.component';
 
 @NgModule({
   declarations: [
     LoginComponent,
     FullComponent,
     NavbarComponent,
-    ClassComponent
+    ClassComponent,
+    RegisterComponent
   ],
   imports: [
     SharedModule,
