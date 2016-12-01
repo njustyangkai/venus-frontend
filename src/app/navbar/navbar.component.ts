@@ -1,8 +1,8 @@
 import { Component, ViewChild } from '@angular/core';
 import { Router } from '@angular/router';
 import { NgbModal } from '@ng-bootstrap/ng-bootstrap';
-import { HttpService } from '../../util/http.service';
-import { ApiConfig } from '../../util/ApiConfig';
+import { HttpService } from '../util/http.service';
+import { ApiConfig } from '../util/ApiConfig';
 
 @Component({
   selector: 'px-navbar',

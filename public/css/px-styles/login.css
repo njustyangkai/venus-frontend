@@ -15,7 +15,7 @@
     margin: 0 auto;
     margin-top: 150px;
     border: 1px solid #ccc;
-    padding: 50px 0;
+    padding: 50px 0 30px 0;
     border-radius: 3px;
 }
 
@@ -33,4 +33,25 @@
 
 .login-form .px-btn-primary {
     width: 320px;
+}
+
+.no-account {
+    margin-top: 30px;
+}
+
+.no-account span {
+    font-size: 14px;
+    color: #7c868d;
+}
+
+.no-account a {
+    color: #00abff;
+    font-size: 14px;
+}
+
+.no-account a:hover,
+.no-account a:focus {
+    color: #00abff;
+    font-size: 14px;
+    text-decoration: underline;
 }

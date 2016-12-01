@@ -6,7 +6,7 @@ import { NgbModule } from '@ng-bootstrap/ng-bootstrap';
 import { FullComponent } from './full.component';
 import { FullRoutingModule } from './full-routing.module';
 import { HttpService } from '../util/http.service';
-import { NavbarComponent } from './navbar/navbar.component';
+import { NavbarComponent } from '../navbar/navbar.component';
 import { ClassComponent } from '../class/class.component';
 import { LoginComponent } from '../login/login.component';
 import { FullService } from './full.service';
