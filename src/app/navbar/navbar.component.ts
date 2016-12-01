@@ -86,4 +86,12 @@ export class NavbarComponent {
   pwdChange(value:any) {
     this.isPwdRightFlag = true;
   }
+
+  gotoStudent() {
+    this.router.navigate(['/main/student']);
+  }
+
+  gotoClass() {
+    this.router.navigate(['/main/class']);
+  }
 }

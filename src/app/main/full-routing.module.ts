@@ -4,6 +4,7 @@ import { FullComponent } from './full.component';
 import { ClassComponent } from '../class/class.component';
 import { LoginComponent } from '../login/login.component';
 import { RegisterComponent } from '../register/register.component';
+import { StudentComponent } from '../student/student.component';
 
 const routes = [
   {
@@ -30,6 +31,10 @@ const routes = [
       {
         path: 'class',
         component: ClassComponent
+      },
+      {
+        path: 'student',
+        component: StudentComponent
       }
     ]
   }

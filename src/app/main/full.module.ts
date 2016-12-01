@@ -11,6 +11,7 @@ import { ClassComponent } from '../class/class.component';
 import { LoginComponent } from '../login/login.component';
 import { FullService } from './full.service';
 import { RegisterComponent } from '../register/register.component';
+import { StudentComponent } from '../student/student.component';
 
 @NgModule({
   declarations: [
@@ -18,7 +19,8 @@ import { RegisterComponent } from '../register/register.component';
     FullComponent,
     NavbarComponent,
     ClassComponent,
-    RegisterComponent
+    RegisterComponent,
+    StudentComponent
   ],
   imports: [
     SharedModule,
