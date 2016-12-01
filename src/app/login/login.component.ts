@@ -1,4 +1,4 @@
-import { Component, ViewChild } from '@angular/core';
+import { Component, ViewChild, OnInit } from '@angular/core';
 import { Router } from '@angular/router';
 import { HttpService } from '../util/http.service';
 import { ApiConfig } from '../util/ApiConfig';
@@ -7,7 +7,7 @@ import { ApiConfig } from '../util/ApiConfig';
   templateUrl: './login.component.html'
 })
 
-export class LoginComponent {
+export class LoginComponent implements OnInit {
   width:number;
   height:number;
 
@@ -24,21 +24,24 @@ export class LoginComponent {
     this.height = window.innerHeight;
   }
 
+  ngOnInit() {
+    this.loginForm.valueChanges.subscribe((data:any)=> {
+      this.isShowAlarm = false;
+    });
+  }
+
   login() {
     this.http.post(ApiConfig.LOGIN, this.loginForm.form.value).subscribe(
         (res:any)=> {
           res = res.json();
           if (res.success) {
-            window.localStorage.setItem('userid', res.data.user.id);
+            window.localStorage.setItem('userId', res.data.user.id);
             window.localStorage.setItem('username', res.data.user.username);
             window.localStorage.setItem('role', res.data.role);
             this.router.navigate(['/main']);
           } else {
             this.alarmMsg = '用户名或密码错误！';
             this.isShowAlarm = true;
-            setTimeout(()=> {
-              this.isShowAlarm = false;
-            }, 3000);
           }
         },
         (error:any)=> {
@@ -46,5 +49,6 @@ export class LoginComponent {
         }
     );
   }
+
 
 }

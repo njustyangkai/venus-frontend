@@ -117,7 +117,8 @@
   </div>
   <div class="px-modal-footer">
     <button class="px-btn px-btn-primary"
-            [disabled]="!modifyPwdForm.form.valid || input3.value !== input2.value">确认
+            [disabled]="!modifyPwdForm.form.valid || input3.value !== input2.value"
+            (click)="modifyPwd()">确认
     </button>
     <button class="px-btn px-btn-cancel"
             (click)="modal2.close()">关闭

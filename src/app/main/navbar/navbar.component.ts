@@ -1,6 +1,8 @@
 import { Component, ViewChild } from '@angular/core';
 import { Router } from '@angular/router';
 import { NgbModal } from '@ng-bootstrap/ng-bootstrap';
+import { HttpService } from '../../util/http.service';
+import { ApiConfig } from '../../util/ApiConfig';
 
 @Component({
   selector: 'px-navbar',
@@ -16,7 +18,11 @@ export class NavbarComponent {
   @ViewChild('modal2_template') modal2_template:any;
   modal2:any;
 
-  constructor(private router:Router, private modalService:NgbModal) {
+  @ViewChild('modifyPwdForm') modifyPwdForm:any;
+
+  constructor(private router:Router,
+              private modalService:NgbModal,
+              private http:HttpService) {
     this.username = window.localStorage.getItem('username');
   }
 
@@ -37,5 +43,16 @@ export class NavbarComponent {
   logout() {
     window.localStorage.clear();
     this.router.navigate(['/login']);
+  }
+
+  modifyPwd() {
+    this.http.put(ApiConfig.USER + '/modifyPwd/' + window.localStorage.getItem('userId'), this.modifyPwdForm.form.value).subscribe(
+        (res:any)=> {
+          console.log(res);
+        },
+        (error:any)=> {
+          console.log(error);
+        }
+    )
   }
 }
