@@ -94,8 +94,10 @@
     padding: 14px;
     width: 150px;
     border-radius: 0;
-    border: 2px solid #e74c3c;
+    border: 1px solid #e74c3c;
     border-top: 0;
+    font-size: 14px;
+    margin-right: -1px;
 }
 
 .user-dropdown-menu a {
