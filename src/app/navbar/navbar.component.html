@@ -1,139 +1,144 @@
 <header class="px-header">
-  <div class="px-header-container">
-    <a role="button"
-       class="logo-mini hidden-md-up"
-       routerLink="/main">
-    <span>
-      VS
-    </span>
-    </a>
-    <a role="button"
-       class="logo-lg hidden-sm-down"
-       routerLink="/main">
-    <span>
-      VENUS
-    </span>
-    </a>
-
-    <nav class="px-navbar">
-      <a class="px-navbar-link"
-         role="button"
-         style="padding: 15px 14px;">
-        <img src="../../../public/images/nav_icon_menu_top.png">
-      </a>
-      <a class="px-navbar-link"
-         role="button"
-         (click)="open1()">
-        Contact Me
-      </a>
-      <div class="pull-right"
-           (mouseover)="user.style.display = 'block'"
-           (mouseout)="user.style.display = 'none'"
-           ngbDropdown>
-        <a class="px-navbar-link"
-           role="button"
-           ngbDropdownToggle>
-          <i class="fa fa-user-o fa-fw"></i>
-          <span class="hidden-sm-down">{{username}}</span>
+    <div class="px-header-container">
+        <a role="button"
+           class="logo-mini hidden-md-up"
+           routerLink="/main">
+            <span>
+                VS
+            </span>
         </a>
-        <div #user
-             class="dropdown-menu user-dropdown-menu">
-          <a role="button"
-             (click)="open2()">修改密码</a>
-          <a role="button"
-             (click)="logout()">退出</a>
-        </div>
-      </div>
-    </nav>
-  </div>
+        <a role="button"
+           class="logo-lg hidden-sm-down"
+           routerLink="/main">
+            <span>
+                VENUS
+            </span>
+        </a>
+        <nav class="px-navbar">
+            <!--<a class="px-navbar-link"
+               role="button"
+               style="padding: 15px 14px;"
+               ngbDropdownToggle>
+                <img src="../../../public/images/nav_icon_menu_top.png">
+            </a>-->
+            <a class="px-navbar-link"
+               role="button"
+               (click)="open1()">
+                Contact Me
+            </a>
+            <div class="pull-right user-info"
+                 (mouseover)="user.style.display = 'block';
+                 user_name.style.background='#fff';
+                 user_name.style.color = '#e74c3c'"
+                 (mouseout)="user.style.display = 'none';
+                 user_name.style.background='#e74c3c';
+                 user_name.style.color = '#fff'"
+                 ngbDropdown>
+                <a class="px-navbar-link"
+                   role="button"
+                   #user_name
+                   ngbDropdownToggle>
+                    <i class="fa fa-user-o fa-fw"></i>
+                    <span class="hidden-sm-down">{{username}}</span>
+                </a>
+                <div #user
+                     class="dropdown-menu user-dropdown-menu">
+                    <a role="button"
+                       (click)="open2()">修改密码</a>
+                    <a role="button"
+                       (click)="logout()">退出</a>
+                </div>
+            </div>
+        </nav>
+    </div>
 </header>
 
 <template #modal1_template>
-  <div class="px-modal-header">
-    <h4>Contact Me</h4>
-    <a role="button"
-       (click)="modal1.close()"></a>
-  </div>
-  <div class="px-modal-body">
-    <div style="font-size: 20px; padding-top: 50px">
-      Teacher Han's Tel: 15996262082
+    <div class="px-modal-header">
+        <h4>Contact Me</h4>
+        <a role="button"
+           (click)="modal1.close()"></a>
     </div>
-  </div>
-  <div class="px-modal-footer">
-    <button class="px-btn px-btn-primary"
-            (click)="modal1.close()">OK
-    </button>
-  </div>
+    <div class="px-modal-body">
+        <div style="font-size: 20px; padding-top: 50px">
+            Teacher Han's Tel: 15996262082
+        </div>
+    </div>
+    <div class="px-modal-footer">
+        <button class="px-btn px-btn-primary"
+                (click)="modal1.close()">OK
+        </button>
+    </div>
 </template>
 
 <template #modal2_template>
-  <div class="px-modal-header">
-    <h4>修改密码</h4>
-    <a role="button"
-       (click)="modal2.close()"></a>
-  </div>
-  <div class="px-modal-body">
-    <form class="px-form modify-pwd-form"
-          #modifyPwdForm="ngForm"
-          novalidate>
-      <div class="px-form-control">
-        <div class="px-input-wrapper">
-          <input class="px-input lg"
-                 placeholder="原密码"
-                 type="password"
-                 required
-                 #input1="ngModel"
-                 [(ngModel)]="password"
-                 name="password"
-                 (ngModelChange)="pwdChange($event)">
+    <div class="px-modal-header">
+        <h4>修改密码</h4>
+        <a role="button"
+           (click)="modal2.close()"></a>
+    </div>
+    <div class="px-modal-body">
+        <form class="px-form modify-pwd-form"
+              #modifyPwdForm="ngForm"
+              novalidate>
+            <div class="px-form-control">
+                <div class="px-input-wrapper">
+                    <input class="px-input lg"
+                           placeholder="原密码"
+                           type="password"
+                           required
+                           #input1="ngModel"
+                           [(ngModel)]="password"
+                           name="password"
+                           (ngModelChange)="pwdChange($event)">
           <span class="validation"
                 *ngIf="input1.errors?.required && !input1.pristine">原密码不能为空</span>
            <span class="validation"
                  *ngIf="!isPwdRightFlag">原密码错误</span>
-        </div>
-      </div>
-      <div class="px-form-control">
-        <div class="px-input-wrapper">
-          <input class="px-input lg"
-                 required
-                 type="password"
-                 placeholder="新密码"
-                 #input2="ngModel"
-                 [(ngModel)]="newPassword"
-                 name="newPassword">
+                </div>
+            </div>
+            <div class="px-form-control">
+                <div class="px-input-wrapper">
+                    <input class="px-input lg"
+                           required
+                           type="password"
+                           placeholder="新密码"
+                           #input2="ngModel"
+                           [(ngModel)]="newPassword"
+                           name="newPassword">
           <span class="validation"
                 *ngIf="input2.errors?.required && !input2.pristine">新密码不能为空</span>
-        </div>
-      </div>
-      <div class="px-form-control">
-        <div class="px-input-wrapper">
-          <input class="px-input lg"
-                 required
-                 type="password"
-                 placeholder="确认密码"
-                 #input3="ngModel"
-                 [(ngModel)]="confirmPassword"
-                 name="confirmPassword">
+                </div>
+            </div>
+            <div class="px-form-control">
+                <div class="px-input-wrapper">
+                    <input class="px-input lg"
+                           required
+                           type="password"
+                           placeholder="确认密码"
+                           #input3="ngModel"
+                           [(ngModel)]="confirmPassword"
+                           name="confirmPassword">
           <span class="validation"
                 *ngIf="input3.errors?.required && !input3.pristine">确认密码不能为空</span>
           <span class="validation"
                 *ngIf="!input3.errors?.required && input3.value !== input2.value">两次密码不一致</span>
-        </div>
-      </div>
-    </form>
-  </div>
-  <div class="px-modal-footer">
-    <button class="px-btn px-btn-primary"
-            [disabled]="!modifyPwdForm.form.valid || input3.value !== input2.value || !isPwdRightFlag"
-            (click)="modifyPwd(modifyPwdForm.form.value)">确认
-    </button>
-    <button class="px-btn px-btn-cancel"
-            (click)="modal2.close()">关闭
-    </button>
-  </div>
+                </div>
+            </div>
+        </form>
+    </div>
+    <div class="px-modal-footer">
+        <button class="px-btn px-btn-primary"
+                [disabled]="!modifyPwdForm.form.valid || input3.value !== input2.value || !isPwdRightFlag"
+                (click)="modifyPwd(modifyPwdForm.form.value)">确认
+        </button>
+        <button class="px-btn px-btn-cancel"
+                (click)="modal2.close()">关闭
+        </button>
+    </div>
 </template>
 
 <div class="px-alert px-alert-success"
      *ngIf="isShowSuccess">
-  <b>成功！</b>{{successMsg}}
+    <b>成功！</b>{{successMsg}}
 </div>
