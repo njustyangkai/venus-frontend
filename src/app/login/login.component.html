@@ -7,7 +7,7 @@
       <form class="px-form" #loginForm="ngForm" novalidate>
         <div class="px-form-control">
           <div class="px-input-wrapper">
-            <input class="px-input lg" required type="text"
+            <input class="px-input md" required type="text"
                    #input1="ngModel" [(ngModel)]="username"
                    name="username" placeholder="用户名">
             <span class="validation" *ngIf="input1.errors?.required && !input1.pristine">名称不能为空</span>
@@ -15,7 +15,7 @@
         </div>
         <div class="px-form-control">
           <div class="px-input-wrapper">
-            <input class="px-input lg" required type="password"
+            <input class="px-input md" required type="password"
                    #input2="ngModel" [(ngModel)]="password"
                    name="password" placeholder="密码">
             <span class="validation" *ngIf="input2.errors?.required && !input2.pristine">密码不能为空</span>

@@ -27,6 +27,10 @@
     width: 190px;
 }
 
+.px-input.md {
+    width: 320px;
+}
+
 .px-input:disabled {
     background-color: #f2f2f2;
     cursor: not-allowed;

@@ -31,10 +31,6 @@
     text-align: center;
 }
 
-.login-form input {
-    width: 320px !important;
-}
-
 .login-form .px-btn-primary {
     width: 320px;
 }
