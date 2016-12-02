@@ -1,3 +1,50 @@
 <section class="px-content-header">
     <h1>Students</h1>
+    <small>
+        All Students here.
+    </small>
+</section>
+
+<section class="px-content">
+    <div class="px-table-wrapper">
+        <div class="toolbar">
+            <button class="px-btn px-btn-success create">添加新学生</button>
+            <div class="search-wrapper">
+                <input class="search"
+                       placeholder="输入关键字筛选">
+                <span class="search-addon">
+                    <a role="button">
+                        <img src="../../../public/images/icon_search_mirror.png">
+                    </a>
+                </span>
+            </div>
+        </div>
+        <table class="px-table">
+            <thead>
+            <tr>
+                <th><input type="checkbox"
+                           class="px-checkbox"></th>
+                <th>序号</th>
+                <th>用户名</th>
+                <th>角色</th>
+                <th>激活状态</th>
+                <th>在线状态</th>
+                <th>操作</th>
+            </tr>
+            </thead>
+            <tbody>
+            <tr *ngFor="let data of datas;let i = index">
+                <td><input type="checkbox"
+                           class="px-checkbox"></td>
+                <td>{{i + 1}}</td>
+                <td>{{data.username}}</td>
+                <td>{{data.role}}</td>
+                <td>{{data.status}}</td>
+                <td>{{data.state}}</td>
+                <td></td>
+            </tr>
+            </tbody>
+        </table>
+    </div>
+
 </section>
