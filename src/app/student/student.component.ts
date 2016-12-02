@@ -8,9 +8,24 @@ import * as moment from 'moment';
 
 export class StudentComponent implements OnInit {
   datas:any[];
+  currentPage:number;
+  size:number;
+  pageSize:number;
+  pageNum:number;
+  currentPageData:any[];
+  hasData:boolean;
+  isCheckAll:boolean;
+  selections:any[];
 
   constructor(private studentService:StudentService) {
     this.datas = [];
+    this.currentPage = 1;
+    this.currentPageData = [];
+    this.pageSize = 5;
+    this.pageNum = 1;
+    this.hasData = false;
+    this.isCheckAll = false;
+    this.selections = [];
   }
 
   ngOnInit() {
@@ -19,12 +34,38 @@ export class StudentComponent implements OnInit {
           if (res.success) {
             this.datas = res.data;
             this.extractData();
+            this.setSize();
+            this.setCurrentPageData();
           }
         },
         (error:any)=> {
           console.log(error);
         }
     );
+  }
+
+  setSize() {
+    this.size = this.datas.length;
+    if (this.size > 0) {
+      this.hasData = true;
+    } else {
+      this.hasData = false;
+    }
+    this.pageNum = Math.ceil(this.size / this.pageSize);
+  }
+
+  setCurrentPageData() {
+    this.currentPageData = [];
+    let index = (this.currentPage - 1) * this.pageSize;
+    let length = 0;
+    if (this.size < this.currentPage * this.pageSize) {
+      length = this.size;
+    } else {
+      length = this.currentPage * this.pageSize;
+    }
+    for (let i = index; i < length; i++) {
+      this.currentPageData.push(this.datas[i]);
+    }
   }
 
   extractData() {
@@ -35,5 +76,12 @@ export class StudentComponent implements OnInit {
         }
       }
     });
+  }
+
+  pageChange(event:any) {
+    this.isCheckAll = false;
+    this.currentPage = parseInt(event);
+    this.selections = [];
+    this.setCurrentPageData();
   }
 }

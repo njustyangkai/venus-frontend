@@ -2,7 +2,8 @@
 /* input
 /****************************/
 .px-table-wrapper {
-    overflow: auto;
+    overflow-x: auto;
+    overflow-y: hidden;
 }
 
 .px-table-wrapper .toolbar {
@@ -48,14 +49,14 @@
     width: 100%;
 }
 
-.px-table td, .px-table th {
+.px-table tbody td, .px-table thead th {
     text-align: left;
     padding-left: 20px;
     line-height: 1;
     vertical-align: middle;
 }
 
-.px-table th {
+.px-table thead th {
     font-size: 14px;
     color: #4d5761;
     font-weight: normal;
@@ -68,29 +69,29 @@
     border-width: 1px 1px 1px 0;
 }
 
-.px-table th:first-child,
-.px-table td:first-child {
+.px-table thead th:first-child,
+.px-table tbody td:first-child {
     width: 40px;
     text-align: center;
     padding: 0;
 }
 
-.px-table th:nth-child(2),
-.px-table td:nth-child(2) {
+.px-table thead th:nth-child(2),
+.px-table tbody td:nth-child(2) {
     width: 50px;
     text-align: center;
     padding: 0;
 }
 
-.px-table tr th:last-child {
+.px-table thead tr th:last-child {
     border-right: 0;
 }
 
-.px-table tr:last-child td {
+.px-table tbody tr:last-child td {
     border-bottom-color: #e6e6e6;
 }
 
-.px-table td {
+.px-table tbody td {
     font-size: 14px;
     color: #7c868d;
     height: 45px;
@@ -103,10 +104,91 @@
     border-color: #c9e6f2;
 }
 
-.px-table tr td:last-child {
+.px-table tbody tr td:last-child {
     border-right: 0;
 }
 
 .px-table tbody tr:hover {
     background-color: #e7f6ff;
+}
+
+.px-table-link {
+    color: #00abff;
+}
+
+.px-table-link:hover,
+.px-table-link:focus {
+    color: #00abff;
+    text-decoration: underline;
+}
+
+.px-table-operate {
+    font-size: 0 !important;
+}
+
+.px-table-operate button:not(:first-child) {
+    margin-left: 10px;
+}
+
+.px-pagination-wrapper {
+    float: right;
+    margin-top: 10px;
+}
+
+.px-pagination-info {
+    font-size: 14px;
+    color: #4d5761;
+    float: left;
+}
+
+.px-pagination-info div {
+    display: inline-block;
+    padding-top: 7px;
+}
+
+.px-pagination-info div:first-child {
+    margin-right: 10px;
+}
+
+.px-pagination-info div:last-child {
+    color: #7c868d;
+}
+
+.px-pagination {
+    color: #7c868d;
+    font-size: 14px;
+    float: left;
+}
+
+.px-pagination button {
+    padding: 0 6px;
+    color: #7c868d;
+    background: #fff;
+    border: 0;
+}
+
+.px-pagination button:hover,
+.px-pagination button:focus {
+    color: #4d5761;
+    background: #fff;
+    border: 0;
+}
+
+.px-pagination button:disabled {
+    cursor: not-allowed;
+}
+
+.px-pagination input {
+    outline: none;
+    border-radius: 2px;
+    border: 1px solid #ddd;
+    font-size: 14px;
+    color: #7c868d;
+    width: 32px;
+    height: 28px;
+    padding-left: 3px;
+}
+
+.px-pagination input:focus {
+    border-color: #3fb3ff;
 }

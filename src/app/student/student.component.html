@@ -31,27 +31,56 @@
                 <th>年级</th>
                 <th>最后登录时间</th>
                 <th>状态</th>
-                <th>操作</th>
+                <th style="width: 200px;">操作</th>
             </tr>
             </thead>
             <tbody>
-            <tr *ngFor="let data of datas;let i = index">
+            <tr *ngFor="let data of currentPageData;let i = index">
                 <td><input type="checkbox"
                            class="px-checkbox"></td>
                 <td>{{i + 1}}</td>
-                <td>{{data.username}}</td>
+                <td><a role="button"
+                       class="px-table-link">{{data.username}}</a></td>
                 <td>{{data.name}}</td>
                 <td>{{data.sex}}</td>
                 <td>{{data.grade}}</td>
                 <td>{{data.lastLogTime}}</td>
                 <td>
-                    <label *ngIf="data.status===1" class="label label-success">激活</label>
-                    <label *ngIf="data.status===0" class="label label-danger">锁定</label>
+                    <span *ngIf="data.status===1">
+                        <i class="fa fa-unlock fa-fw"
+                           style="color: #73cf22"></i>激活</span>
+                    <span *ngIf="data.status===0">
+                        <i class="fa fa-lock fa-fw"
+                           style="color: #ff625d"></i>锁定</span>
                 </td>
-                <td></td>
+                <td class="px-table-operate">
+                    <button class="px-btn px-btn-operate">编辑</button>
+                    <button class="px-btn px-btn-operate">删除</button>
+                </td>
             </tr>
             </tbody>
         </table>
-    </div>
+        <div class="tfoot">
+            <div class="tfoot-operate">
 
+            </div>
+            <div class="px-pagination-wrapper">
+                <div class="px-pagination-info">
+                    <div>共{{size}}条</div>
+                    <div>每页显示{{pageSize}}条</div>
+                </div>
+                <div class="px-pagination">
+                    <button role="button"
+                            [disabled]="currentPage===1"
+                            (click)="pageChange(currentPage-1)"><i class="fa fa-angle-left"></i>
+                    </button>
+                    <input [(ngModel)]="currentPage"
+                           (ngModelChange)="pageChange($event)">/{{pageNum}}
+                    <button role="button"
+                            (click)="pageChange(currentPage+1)"
+                            [disabled]="currentPage===pageNum"><i class="fa fa-angle-right"></i></button>
+                </div>
+            </div>
+        </div>
+    </div>
 </section>
