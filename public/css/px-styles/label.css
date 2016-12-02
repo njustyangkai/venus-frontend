@@ -1,0 +1,27 @@
+/*****************************/
+/* label
+/****************************/
+.label {
+    display: inline-block;
+    padding: 8px 20px;
+    font-size: 14px;
+    line-height: 1;
+    color: #fff;
+    white-space: nowrap;
+    vertical-align: baseline;
+    border-radius: 4px;
+    font-weight: normal;
+    margin-bottom: 0;
+}
+
+.label-primary {
+    background-color: #00abff;
+}
+
+.label-success {
+    background-color: #73cf22;
+}
+
+.label-danger {
+    background-color: #ff625d;
+}

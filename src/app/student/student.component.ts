@@ -31,7 +31,7 @@ export class StudentComponent implements OnInit {
     this.datas.forEach((v)=> {
       for (let k in v) {
         if (k === 'last_log_time') {
-          v[k] = moment(v[k]).format('YYYY-MM-DD HH:mm:ss');
+          v['lastLogTime'] = moment(v[k]).format('YYYY-MM-DD HH:mm:ss');
         }
       }
     });

@@ -99,6 +99,10 @@
     border-width: 0 1px 1px 0;
 }
 
+.px-table tbody tr:hover td {
+    border-color: #c9e6f2;
+}
+
 .px-table tr td:last-child {
     border-right: 0;
 }
