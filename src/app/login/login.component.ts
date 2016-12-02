@@ -32,8 +32,8 @@ export class LoginComponent implements OnInit {
         (res:any)=> {
           res = res.json();
           if (res.success) {
-            window.localStorage.setItem('userId', res.data.user.id);
-            window.localStorage.setItem('username', res.data.user.username);
+            window.localStorage.setItem('userId', res.data.user['user_id']);
+            window.localStorage.setItem('username', res.data.user['username']);
             window.localStorage.setItem('role', res.data.role);
             this.router.navigate(['/main']);
           } else {

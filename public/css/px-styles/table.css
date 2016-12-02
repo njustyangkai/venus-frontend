@@ -69,6 +69,20 @@
     border-width: 1px 1px 1px 0;
 }
 
+.px-table th:first-child,
+.px-table td:first-child {
+    width: 40px;
+    text-align: center;
+    padding: 0;
+}
+
+.px-table th:nth-child(2),
+.px-table td:nth-child(2) {
+    width: 50px;
+    text-align: center;
+    padding: 0;
+}
+
 .px-table tr th:last-child {
     border-right: 0;
 }

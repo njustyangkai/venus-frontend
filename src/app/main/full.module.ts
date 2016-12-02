@@ -12,6 +12,7 @@ import { LoginComponent } from '../login/login.component';
 import { FullService } from './full.service';
 import { RegisterComponent } from '../register/register.component';
 import { StudentComponent } from '../student/student.component';
+import { StudentService } from '../student/student.service';
 
 @NgModule({
   declarations: [
@@ -29,7 +30,8 @@ import { StudentComponent } from '../student/student.component';
   ],
   providers: [
     HttpService,
-    FullService
+    FullService,
+    StudentService
   ]
 })
 
