@@ -1,6 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import { StudentService } from './student.service';
 import * as moment from 'moment';
+import * as _ from 'underscore';
 
 @Component({
   templateUrl: './student.component.html'
@@ -16,6 +17,8 @@ export class StudentComponent implements OnInit {
   hasData:boolean;
   isCheckAll:boolean;
   selections:any[];
+  searchKeyword:string;
+  datasCopy:any[];
 
   constructor(private studentService:StudentService) {
     this.datas = [];
@@ -26,6 +29,7 @@ export class StudentComponent implements OnInit {
     this.hasData = false;
     this.isCheckAll = false;
     this.selections = [];
+    this.datasCopy = [];
   }
 
   ngOnInit() {
@@ -36,6 +40,7 @@ export class StudentComponent implements OnInit {
             this.extractData();
             this.setSize();
             this.setCurrentPageData();
+            this.datasCopy = this.datas;
           }
         },
         (error:any)=> {
@@ -46,11 +51,7 @@ export class StudentComponent implements OnInit {
 
   setSize() {
     this.size = this.datas.length;
-    if (this.size > 0) {
-      this.hasData = true;
-    } else {
-      this.hasData = false;
-    }
+    this.size > 0 ? this.hasData = true : this.hasData = false;
     this.pageNum = Math.ceil(this.size / this.pageSize);
   }
 
@@ -69,12 +70,14 @@ export class StudentComponent implements OnInit {
   }
 
   extractData() {
-    this.datas.forEach((v)=> {
+    this.datas.forEach((v, i)=> {
       for (let k in v) {
         if (k === 'last_log_time') {
           v['lastLogTime'] = moment(v[k]).format('YYYY-MM-DD HH:mm:ss');
         }
       }
+      v['i'] = i;
+      v['search'] = v['username'] + v['name'];
     });
   }
 
@@ -83,5 +86,17 @@ export class StudentComponent implements OnInit {
     this.currentPage = parseInt(event);
     this.selections = [];
     this.setCurrentPageData();
+  }
+
+  search(word:string) {
+    if (word && word.trim() !== '') {
+      this.datas = _.filter(this.datasCopy, (v:any)=> {
+        return v['search'].indexOf(word) > -1;
+      });
+    } else {
+      this.datas = this.datasCopy;
+    }
+    this.setSize();
+    this.pageChange(1);
   }
 }

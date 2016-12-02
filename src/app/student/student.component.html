@@ -11,7 +11,9 @@
             <button class="px-btn px-btn-success create">添加新学生</button>
             <div class="search-wrapper">
                 <input class="search"
-                       placeholder="输入关键字筛选">
+                       placeholder="输入关键字筛选"
+                       [(ngModel)]="searchKeyword"
+                       (ngModelChange)="search($event)">
                 <span class="search-addon">
                     <a role="button">
                         <img src="../../../public/images/icon_search_mirror.png">
@@ -35,10 +37,10 @@
             </tr>
             </thead>
             <tbody>
-            <tr *ngFor="let data of currentPageData;let i = index">
+            <tr *ngFor="let data of currentPageData">
                 <td><input type="checkbox"
                            class="px-checkbox"></td>
-                <td>{{i + 1}}</td>
+                <td>{{data.i + 1}}</td>
                 <td><a role="button"
                        class="px-table-link">{{data.username}}</a></td>
                 <td>{{data.name}}</td>
