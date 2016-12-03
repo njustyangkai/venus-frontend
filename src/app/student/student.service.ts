@@ -10,7 +10,11 @@ export class StudentService {
 
   }
 
-  getStudents() {
+  add(data:any) {
+    return this.http.post(ApiConfig.STUDENT, data).map(this.extractData).catch(this.handleError);
+  }
+
+  get() {
     return this.http.get(ApiConfig.STUDENT).map(this.extractData).catch(this.handleError);
   }
 
