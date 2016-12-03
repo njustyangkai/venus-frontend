@@ -69,15 +69,14 @@
             <div class="px-pagination-wrapper">
                 <div class="px-pagination-info">
                     <div>共{{size}}条</div>
-                    <div>每页显示{{pageSize}}条</div>
+                    <div>每页{{pageSize}}条</div>
                 </div>
                 <div class="px-pagination">
                     <button role="button"
                             [disabled]="currentPage===1"
-                            (click)="pageChange(currentPage-1)"><i class="fa fa-angle-left"></i>
-                    </button>
+                            (click)="pageChange(currentPage-1)"><i class="fa fa-angle-left"></i></button>
                     <input [(ngModel)]="currentPage"
-                           (ngModelChange)="pageChange($event)">/{{pageNum}}
+                           (ngModelChange)="pageChange($event)"><span>/{{pageNum}}</span>
                     <button role="button"
                             (click)="pageChange(currentPage+1)"
                             [disabled]="currentPage===pageNum"><i class="fa fa-angle-right"></i></button>

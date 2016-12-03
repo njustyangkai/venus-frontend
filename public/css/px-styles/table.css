@@ -156,22 +156,24 @@
 
 .px-pagination {
     color: #7c868d;
-    font-size: 14px;
     float: left;
 }
 
 .px-pagination button {
-    padding: 0 6px;
+    font-size: 14px;
     color: #7c868d;
     background: #fff;
-    border: 0;
+    padding: 0 12px;
+    border: 1px solid #ddd;
+    height: 28px;
+    border-radius: 2px;
+    margin: 0 6px;
 }
 
 .px-pagination button:hover,
 .px-pagination button:focus {
     color: #4d5761;
     background: #fff;
-    border: 0;
 }
 
 .px-pagination button:disabled {
@@ -184,11 +186,17 @@
     border: 1px solid #ddd;
     font-size: 14px;
     color: #7c868d;
-    width: 32px;
+    width: 40px;
     height: 28px;
-    padding-left: 3px;
+    text-align: center;
 }
 
 .px-pagination input:focus {
     border-color: #3fb3ff;
+}
+
+.px-pagination input + span {
+    font-size: 14px;
+    padding-left: 4px;
+    padding-right: 6px;
 }
