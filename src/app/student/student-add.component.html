@@ -1,6 +1,7 @@
 <section class="px-content-header">
     <ol class="breadcrumb">
-        <li class="breadcrumb-item"><a role="button" routerLink="/main/student">学生列表</a></li>
+        <li class="breadcrumb-item"><a role="button"
+                                       routerLink="/main/student">学生列表</a></li>
         <li class="breadcrumb-item">添加新学生</li>
     </ol>
     <h1>添加新学生</h1>
@@ -11,19 +12,38 @@
 
 <section class="px-content">
     <div class="h-20"></div>
-    <form class="px-form" novalidate>
+    <form class="px-form"
+          novalidate>
         <div class="px-form-control">
-            <label for="input1">网络名称</label>
+            <label for="input1">用户名</label>
             <div class="px-input-wrapper">
-                <input class="px-input lg" id="input1" required #input1="ngModel" [(ngModel)]="name" name="name">
-                <span class="notes" *ngIf="!input1.errors || input1.pristine">内容说明：名称只能为字母、数字和下划线</span>
-                <span class="validation" *ngIf="input1.errors?.required && !input1.pristine">名称不能为空</span>
+                <input class="px-input lg"
+                       id="input1"
+                       required
+                       pattern="^[a-zA-Z0-9_]+$"
+                       #input1="ngModel"
+                       [(ngModel)]="username"
+                       name="username">
+                <span class="notes"
+                      *ngIf="!input1.errors || input1.pristine">只能为字母、数字和下划线</span>
+                <span class="validation"
+                      *ngIf="input1.errors?.required && !input1.pristine">用户名不能为空</span>
+                <span class="validation"
+                      *ngIf="input1.errors?.pattern && !isUsernameUsed">用户名只能为字母、数字和下划线</span>
+                <span class="validation"
+                      *ngIf="isUsernameUsed">此用户名已经被占用</span>
             </div>
         </div>
         <div class="px-form-control">
             <label for="select1">所属云环境</label>
-            <div ngbDropdown class="px-select">
-                <input ngbDropdownToggle [(ngModel)]="cloudEnv" readonly placeholder="请选择" id="select1" name="cloudEnv">
+            <div ngbDropdown
+                 class="px-select">
+                <input ngbDropdownToggle
+                       [(ngModel)]="cloudEnv"
+                       readonly
+                       placeholder="请选择"
+                       id="select1"
+                       name="cloudEnv">
                 <i class="fa fa-caret-down"></i>
                 <div class="dropdown-menu">
                     <button (click)="cloudEnv = '云环境1'">云环境1</button>
@@ -34,8 +54,14 @@
         </div>
         <div class="px-form-control">
             <label for="select2">所属DC</label>
-            <div ngbDropdown class="px-select">
-                <input ngbDropdownToggle [(ngModel)]="dc" readonly placeholder="请选择" id="select2" name="dc">
+            <div ngbDropdown
+                 class="px-select">
+                <input ngbDropdownToggle
+                       [(ngModel)]="dc"
+                       readonly
+                       placeholder="请选择"
+                       id="select2"
+                       name="dc">
                 <i class="fa fa-caret-down"></i>
                 <div class="dropdown-menu">
                     <button (click)="dc = '数据中心1'">数据中心1</button>
@@ -46,8 +72,14 @@
         </div>
         <div class="px-form-control">
             <label for="select3">网络类型</label>
-            <div ngbDropdown class="px-select">
-                <input ngbDropdownToggle [(ngModel)]="type" readonly placeholder="请选择" id="select3" name="type">
+            <div ngbDropdown
+                 class="px-select">
+                <input ngbDropdownToggle
+                       [(ngModel)]="type"
+                       readonly
+                       placeholder="请选择"
+                       id="select3"
+                       name="type">
                 <i class="fa fa-caret-down"></i>
                 <div class="dropdown-menu">
                     <button (click)="type = 'VXLAN'">VXLAN</button>
@@ -57,8 +89,14 @@
         </div>
         <div class="px-form-control">
             <label for="select4">段ID</label>
-            <div ngbDropdown class="px-select">
-                <input ngbDropdownToggle [(ngModel)]="tag" readonly placeholder="请选择" id="select4" name="tag">
+            <div ngbDropdown
+                 class="px-select">
+                <input ngbDropdownToggle
+                       [(ngModel)]="tag"
+                       readonly
+                       placeholder="请选择"
+                       id="select4"
+                       name="tag">
                 <i class="fa fa-caret-down"></i>
                 <div class="dropdown-menu">
                     <button (click)="tag = '段1'">段1</button>
@@ -69,22 +107,27 @@
         <div class="px-form-control">
             <label for="input2">CIDR</label>
             <div class="px-input-wrapper">
-                <input class="px-input lg" id="input2">
+                <input class="px-input lg"
+                       id="input2">
                 <span class="notes">格式说明：0.0.0.0/0</span>
             </div>
         </div>
         <div class="px-form-control">
             <label for="input3">可用地址池</label>
             <div class="px-input-wrapper">
-                <input class="px-input sm" id="input3" placeholder="0.0.0.2">
+                <input class="px-input sm"
+                       id="input3"
+                       placeholder="0.0.0.2">
                 <i class="link">-</i>
-                <input class="px-input sm" placeholder="0.0.0.254">
+                <input class="px-input sm"
+                       placeholder="0.0.0.254">
             </div>
         </div>
         <div class="px-form-control">
             <label for="input4">带宽</label>
             <div class="px-input-wrapper">
-                <input class="px-input lg addon" id="input4">
+                <input class="px-input lg addon"
+                       id="input4">
                 <span class="addon">Mbps</span>
             </div>
         </div>
@@ -92,11 +135,15 @@
             <label>DHCP</label>
             <div class="px-radio-group">
                 <label class="px-radio-wrapper">
-                    <input type="radio" class="px-radio" name="radio1">
+                    <input type="radio"
+                           class="px-radio"
+                           name="radio1">
                     <span>是</span>
                 </label>
                 <label class="px-radio-wrapper">
-                    <input type="radio" class="px-radio" name="radio1">
+                    <input type="radio"
+                           class="px-radio"
+                           name="radio1">
                     <span>否</span>
                 </label>
             </div>
@@ -104,6 +151,8 @@
     </form>
     <div class="px-form-buttons">
         <button class="px-btn px-btn-primary">提交</button>
-        <button class="px-btn px-btn-cancel" (click)="cancel()">取消</button>
+        <button class="px-btn px-btn-cancel"
+                (click)="cancel()">取消
+        </button>
     </div>
 </section>

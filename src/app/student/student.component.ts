@@ -126,6 +126,6 @@ export class StudentComponent implements OnInit {
   }
 
   add() {
-    this.router.navigate(['/main/student-add']);
+    this.router.navigate(['/main/addStudent']);
   }
 }

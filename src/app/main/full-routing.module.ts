@@ -38,7 +38,7 @@ const routes = [
         component: StudentComponent
       },
       {
-        path: 'student-add',
+        path: 'addStudent',
         component: StudentAddComponent
       }
     ]

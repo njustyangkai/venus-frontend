@@ -6,6 +6,8 @@ import { Router } from '@angular/router';
 })
 
 export class StudentAddComponent {
+  isUsernameUsed:boolean = false;
+
   constructor(private router:Router) {
 
   }
