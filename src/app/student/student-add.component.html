@@ -36,6 +36,24 @@
             </div>
         </div>
         <div class="px-form-control">
+            <label for="input4">姓名</label>
+            <div class="px-input-wrapper">
+                <input class="px-input lg"
+                       id="input4"
+                       required
+                       pattern="^[\u4E00-\u9FA5]+$"
+                       #input4="ngModel"
+                       [(ngModel)]="name"
+                       name="name">
+                <span class="notes"
+                      *ngIf="!input4.errors || input4.pristine">只能为中文</span>
+                <span class="validation"
+                      *ngIf="input4.errors?.required && !input4.pristine">姓名不能为空</span>
+                <span class="validation"
+                      *ngIf="input4.errors?.pattern">姓名只能为中文</span>
+            </div>
+        </div>
+        <div class="px-form-control">
             <label for="input2">密码</label>
             <div class="px-input-wrapper">
                 <input class="px-input lg"
