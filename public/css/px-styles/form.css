@@ -23,12 +23,16 @@
     display: inline-block;
 }
 
+.px-form-control .px-datepicker-wrapper {
+    display: inline-block;
+}
+
 .px-form-control .px-radio-group .px-radio-wrapper:not(:first-child){
     margin-left: 70px;
 }
 
 .px-form-buttons {
-    margin-top: 20px;
+    margin-top: 10px;
     margin-left: 200px;
 }
 

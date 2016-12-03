@@ -36,24 +36,6 @@
             </div>
         </div>
         <div class="px-form-control">
-            <label for="input4">姓名</label>
-            <div class="px-input-wrapper">
-                <input class="px-input lg"
-                       id="input4"
-                       required
-                       pattern="^[\u4E00-\u9FA5]+$"
-                       #input4="ngModel"
-                       [(ngModel)]="name"
-                       name="name">
-                <span class="notes"
-                      *ngIf="!input4.errors || input4.pristine">只能为中文</span>
-                <span class="validation"
-                      *ngIf="input4.errors?.required && !input4.pristine">姓名不能为空</span>
-                <span class="validation"
-                      *ngIf="input4.errors?.pattern">姓名只能为中文</span>
-            </div>
-        </div>
-        <div class="px-form-control">
             <label for="input2">密码</label>
             <div class="px-input-wrapper">
                 <input class="px-input lg"
@@ -83,6 +65,83 @@
                               *ngIf="input3.errors?.required && !input3.pristine">确认密码不能为空</span>
                         <span class="validation"
                               *ngIf="!input3.errors?.required && input3.value !== input2.value">两次密码不一致</span>
+            </div>
+        </div>
+        <div class="px-form-control">
+            <label for="input4">姓名</label>
+            <div class="px-input-wrapper">
+                <input class="px-input lg"
+                       id="input4"
+                       required
+                       pattern="^[\u4E00-\u9FA5]+$"
+                       #input4="ngModel"
+                       [(ngModel)]="name"
+                       name="name">
+                <span class="notes"
+                      *ngIf="!input4.errors || input4.pristine">只能为中文</span>
+                <span class="validation"
+                      *ngIf="input4
+                      .errors?.required && !input4.pristine">姓名不能为空</span>
+                <span class="validation"
+                      *ngIf="input4.errors?.pattern">姓名只能为中文</span>
+            </div>
+        </div>
+        <div class="px-form-control">
+            <label for="select1">年级</label>
+            <div ngbDropdown
+                 class="px-select">
+                <input ngbDropdownToggle
+                       [(ngModel)]="grade"
+                       readonly
+                       placeholder="请选择"
+                       id="select1"
+                       name="grade">
+                <i class="fa fa-caret-down"></i>
+                <div class="dropdown-menu">
+                    <button (click)="grade = '一年级'">一年级</button>
+                    <button (click)="grade = '二年级'">二年级</button>
+                    <button (click)="grade = '三年级'">三年级</button>
+                    <button (click)="grade = '四年级'">四年级</button>
+                    <button (click)="grade = '五年级'">五年级</button>
+                    <button (click)="grade = '六年级'">六年级</button>
+                    <button (click)="grade = '初一'">初一</button>
+                    <button (click)="grade = '初二'">初二</button>
+                    <button (click)="grade = '初三'">初三</button>
+                    <button (click)="grade = '高一'">高一</button>
+                    <button (click)="grade = '高二'">高二</button>
+                    <button (click)="grade = '高三'">高三</button>
+                    <button (click)="grade = '其他'">其他</button>
+                </div>
+            </div>
+        </div>
+        <div class="px-form-control">
+            <label for="input4">出生日期</label>
+            <div class="px-datepicker-wrapper">
+                <input class="px-datepicker lg addon"
+                       ngbDatepicker
+                       #d="ngbDatepicker"
+                       (click)="d.open()">
+                <span class="addon"
+                      (click)="d.toggle()">
+                    <i class="fa fa-calendar"></i>
+                </span>
+            </div>
+        </div>
+        <div class="px-form-control">
+            <label>性别</label>
+            <div class="px-radio-group">
+                <label class="px-radio-wrapper">
+                    <input type="radio"
+                           class="px-radio"
+                           name="sex">
+                    <span>男</span>
+                </label>
+                <label class="px-radio-wrapper">
+                    <input type="radio"
+                           class="px-radio"
+                           name="sex">
+                    <span>女</span>
+                </label>
             </div>
         </div>
     </form>

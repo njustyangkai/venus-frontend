@@ -1,0 +1,82 @@
+/*****************************/
+/* datepicker
+/****************************/
+.px-datepicker-wrapper {
+    margin-bottom: 20px;
+    max-width: 400px;
+}
+
+.px-datepicker {
+    outline: none;
+    height: 36px;
+    border-radius: 2px;
+    border: 1px solid #ddd;
+    padding-left: 10px;
+    font-size: 14px;
+    color: #4d5761;
+}
+
+.px-datepicker.ng-invalid.ng-dirty {
+    border-color: #ff5b55;
+}
+
+.px-datepicker.lg {
+    width: 400px;
+}
+
+.px-datepicker:focus {
+    border-color: #3fb3ff;
+}
+
+.px-datepicker.sm {
+    width: 190px;
+}
+
+.px-datepicker.md {
+    width: 320px;
+}
+
+.px-datepicker:disabled {
+    background-color: #f2f2f2;
+    cursor: not-allowed;
+}
+
+.px-datepicker.addon {
+    border-top-right-radius: 0;
+    border-bottom-right-radius: 0;
+}
+
+.px-datepicker.lg.addon {
+    width: 360px;
+}
+
+.px-datepicker.sm.addon {
+    width: 150px;
+}
+
+.px-datepicker.sm.addon + span.addon {
+    margin-right: 210px;
+}
+
+.px-datepicker-wrapper span.addon {
+    width: 40px;
+    height: 36px;
+    text-align: center;
+    color: #c2c6c9;
+    font-size: 14px;
+    padding: 11px 0;
+    float: right;
+    border: 1px solid #ddd;
+    border-left: 0;
+    border-top-right-radius: 2px;
+    border-bottom-right-radius: 2px;
+    cursor: pointer;
+}
+
+.px-datepicker.addon:focus + span.addon {
+    border-color: #3fb3ff;
+}
+
+.px-datepicker.addon.ng-invalid.ng-dirty + span.addon {
+    border-color: #ff5b55;
+}
