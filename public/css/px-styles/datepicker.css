@@ -80,3 +80,62 @@
 .px-datepicker.addon.ng-invalid.ng-dirty + span.addon {
     border-color: #ff5b55;
 }
+
+.px-datepicker-wrapper table {
+    border: 1px solid #f2f2f2;
+}
+
+.px-datepicker-wrapper table tbody:first-child .btn-secondary {
+    color: #c2c6c9;
+    background-color: #fff;
+    border: 0;
+    line-height: 1;
+    padding: 10px 15px;
+    font-size: 14px;
+}
+
+.px-datepicker-wrapper table tbody:first-child .btn-secondary:hover {
+    color: #7c868d;
+}
+
+.px-datepicker-wrapper table tbody:first-child .btn-secondary:focus {
+    color: #4d5761;
+}
+
+.px-datepicker-wrapper table tbody:first-child .custom-select {
+    font-size: 14px;
+    padding: 5px 5px;
+    width: 70px;
+    outline: none;
+    cursor: pointer;
+    border: 0;
+    line-height: 1;
+    color: #7c868d;
+}
+
+.px-datepicker-wrapper table .weekday {
+    padding: 10px 0;
+    color: #7c868d;
+}
+
+.px-datepicker-wrapper .day .btn-secondary {
+    padding: 10px;
+    color: #4d5761;
+}
+
+.px-datepicker-wrapper .day .btn-secondary.text-muted {
+    color: #c2c6c9;
+}
+
+.px-datepicker-wrapper .day .btn-secondary.bg-primary {
+    color: #fff !important;
+    background-color: #00abff;
+}
+
+.px-datepicker-wrapper .dropdown-menu {
+    margin: 2px 0 0 0;
+    padding: 0 !important;
+    border: 0;
+    border-radius: 0;
+    font-size: 14px;
+}
