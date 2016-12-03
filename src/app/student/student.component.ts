@@ -27,6 +27,7 @@ export class StudentComponent implements OnInit {
     this.currentPageData = [];
     this.pageSize = 5;
     this.pageNum = 1;
+    this.size = 0;
     this.hasData = false;
     this.isCheckAll = false;
     this.selections = [];

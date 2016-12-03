@@ -44,8 +44,7 @@
                        id="input2"
                        #input2="ngModel"
                        [(ngModel)]="password"
-                       name="password"
-                       placeholder="密码">
+                       name="password">
                         <span class="validation"
                               *ngIf="input2.errors?.required && !input2.pristine">密码不能为空</span>
             </div>
@@ -59,8 +58,7 @@
                        type="password"
                        #input3="ngModel"
                        [(ngModel)]="confirmPassword"
-                       name="confirmPassword"
-                       placeholder="确认密码">
+                       name="confirmPassword">
                         <span class="validation"
                               *ngIf="input3.errors?.required && !input3.pristine">确认密码不能为空</span>
                         <span class="validation"
