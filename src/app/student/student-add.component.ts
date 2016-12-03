@@ -19,7 +19,8 @@ export class StudentAddComponent {
     for(let k in formValue) {
       if (k === 'birthday') {
         let tmp = formValue[k].year + '-' + formValue[k].month + '-' + formValue[k].day;
-        formValue[k] = moment(new Date(tmp)).format('YYYY-MM-DD');
+        let date = new Date(tmp);
+        formValue[k] = moment(date).format('YYYY-MM-DD');
       }
     }
     this.studentService.add(formValue).subscribe(
