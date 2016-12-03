@@ -209,18 +209,7 @@
 .tfoot-operate-check {
     float: left;
     padding-top: 6px;
-}
-
-.tfoot-operate-check input {
     margin-left: 12px;
-    padding-top: 11px;
-}
-
-.tfoot-operate-check span {
-    padding-left: 6px;
-    font-size: 14px;
-    color: #7c868d;
-    padding-top: 12px;
 }
 
 .tfoot-operate-buttons {

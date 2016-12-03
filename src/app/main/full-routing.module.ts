@@ -5,6 +5,7 @@ import { ClassComponent } from '../class/class.component';
 import { LoginComponent } from '../login/login.component';
 import { RegisterComponent } from '../register/register.component';
 import { StudentComponent } from '../student/student.component';
+import { StudentAddComponent } from '../student/student-add.component';
 
 const routes = [
   {
@@ -35,6 +36,10 @@ const routes = [
       {
         path: 'student',
         component: StudentComponent
+      },
+      {
+        path: 'student-add',
+        component: StudentAddComponent
       }
     ]
   }

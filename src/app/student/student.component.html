@@ -8,7 +8,9 @@
 <section class="px-content">
     <div class="px-table-wrapper">
         <div class="toolbar">
-            <button class="px-btn px-btn-success create">添加新学生</button>
+            <button class="px-btn px-btn-success create"
+                    (click)="add()">添加新学生
+            </button>
             <div class="search-wrapper">
                 <input class="search"
                        placeholder="输入关键字筛选"
@@ -71,17 +73,25 @@
         <div class="tfoot">
             <div class="tfoot-operate-wrapper">
                 <div class="tfoot-operate-check">
-                    <input type="checkbox"
-                           #ca
-                           class="px-checkbox"
-                           [checked]="isCheckAll"
-                           (change)="checkAll(ca.checked)">
-                    <span>全选</span>
+                    <label class="px-checkbox-wrapper">
+                        <input type="checkbox"
+                               #ca
+                               class="px-checkbox"
+                               [checked]="isCheckAll"
+                               (change)="checkAll(ca.checked)">
+                        <span>全选</span>
+                    </label>
                 </div>
                 <div class="tfoot-operate-buttons">
-                    <button class="px-btn px-btn-operate">激活</button>
-                    <button class="px-btn px-btn-operate">锁定</button>
-                    <button class="px-btn px-btn-operate">删除</button>
+                    <button class="px-btn px-btn-operate"
+                            [disabled]="!selections.length > 0">激活
+                    </button>
+                    <button class="px-btn px-btn-operate"
+                            [disabled]="!selections.length > 0">锁定
+                    </button>
+                    <button class="px-btn px-btn-operate"
+                            [disabled]="!selections.length > 0">删除
+                    </button>
                 </div>
             </div>
             <div class="px-pagination-wrapper">

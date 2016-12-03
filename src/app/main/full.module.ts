@@ -13,6 +13,7 @@ import { FullService } from './full.service';
 import { RegisterComponent } from '../register/register.component';
 import { StudentComponent } from '../student/student.component';
 import { StudentService } from '../student/student.service';
+import { StudentAddComponent } from '../student/student-add.component';
 
 @NgModule({
   declarations: [
@@ -21,7 +22,8 @@ import { StudentService } from '../student/student.service';
     NavbarComponent,
     ClassComponent,
     RegisterComponent,
-    StudentComponent
+    StudentComponent,
+    StudentAddComponent
   ],
   imports: [
     SharedModule,

@@ -1,4 +1,5 @@
 import { Component, OnInit } from '@angular/core';
+import { Router } from '@angular/router';
 import { StudentService } from './student.service';
 import * as moment from 'moment';
 import * as _ from 'underscore';
@@ -20,7 +21,7 @@ export class StudentComponent implements OnInit {
   searchKeyword:string;
   datasCopy:any[];
 
-  constructor(private studentService:StudentService) {
+  constructor(private studentService:StudentService, private router:Router) {
     this.datas = [];
     this.currentPage = 1;
     this.currentPageData = [];
@@ -122,5 +123,9 @@ export class StudentComponent implements OnInit {
       }
       this.selections.splice(index, 1);
     }
+  }
+
+  add() {
+    this.router.navigate(['/main/student-add']);
   }
 }
