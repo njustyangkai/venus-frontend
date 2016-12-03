@@ -1,4 +1,4 @@
-import { Component } from '@angular/core';
+import { Component, ViewChild } from '@angular/core';
 import { Router } from '@angular/router';
 
 @Component({
@@ -7,9 +7,13 @@ import { Router } from '@angular/router';
 
 export class StudentAddComponent {
   isUsernameUsed:boolean = false;
+  @ViewChild('addForm') addForm:any;
 
   constructor(private router:Router) {
+  }
 
+  add() {
+    console.log(this.addForm.form.value);
   }
 
   cancel() {

@@ -119,6 +119,8 @@
             <div class="px-datepicker-wrapper">
                 <input class="px-datepicker lg addon"
                        ngbDatepicker
+                       [(ngModel)]="birthday"
+                       name="birthday"
                        placeholder="请选择"
                        [minDate]="{year: 1980, month: 1, day: 1}"
                        #d="ngbDatepicker"
@@ -174,12 +176,16 @@
                 <label class="px-radio-wrapper">
                     <input type="radio"
                            class="px-radio"
+                           value="男"
+                           [(ngModel)]="sex"
                            name="sex">
                     <span>男</span>
                 </label>
                 <label class="px-radio-wrapper">
                     <input type="radio"
                            class="px-radio"
+                           value="女"
+                           [(ngModel)]="sex"
                            name="sex">
                     <span>女</span>
                 </label>
@@ -188,7 +194,8 @@
     </form>
     <div class="px-form-buttons">
         <button class="px-btn px-btn-primary"
-                [disabled]="!addForm.form.valid || input3.value !== input2.value || isUsernameUsed">提交
+                [disabled]="!addForm.form.valid || input3.value !== input2.value || isUsernameUsed"
+                (click)="add()">提交
         </button>
         <button class="px-btn px-btn-cancel"
                 (click)="cancel()">取消
