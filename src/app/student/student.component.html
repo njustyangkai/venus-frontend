@@ -25,7 +25,10 @@
             <thead>
             <tr>
                 <th><input type="checkbox"
-                           class="px-checkbox"></th>
+                           #ca
+                           class="px-checkbox"
+                           [checked]="isCheckAll"
+                           (change)="checkAll(ca.checked)"></th>
                 <th>序号</th>
                 <th>用户名</th>
                 <th>姓名</th>
@@ -39,7 +42,10 @@
             <tbody>
             <tr *ngFor="let data of currentPageData">
                 <td><input type="checkbox"
-                           class="px-checkbox"></td>
+                           class="px-checkbox"
+                           [checked]="isCheckAll"
+                           #cb
+                           (change)="check(i, cb.checked)"></td>
                 <td>{{data.i + 1}}</td>
                 <td><a role="button"
                        class="px-table-link">{{data.username}}</a></td>
@@ -63,8 +69,20 @@
             </tbody>
         </table>
         <div class="tfoot">
-            <div class="tfoot-operate">
-
+            <div class="tfoot-operate-wrapper">
+                <div class="tfoot-operate-check">
+                    <input type="checkbox"
+                           #ca
+                           class="px-checkbox"
+                           [checked]="isCheckAll"
+                           (change)="checkAll(ca.checked)">
+                    <span>全选</span>
+                </div>
+                <div class="tfoot-operate-buttons">
+                    <button class="px-btn px-btn-operate">激活</button>
+                    <button class="px-btn px-btn-operate">锁定</button>
+                    <button class="px-btn px-btn-operate">删除</button>
+                </div>
             </div>
             <div class="px-pagination-wrapper">
                 <div class="px-pagination-info">

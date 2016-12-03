@@ -99,4 +99,28 @@ export class StudentComponent implements OnInit {
     this.setSize();
     this.pageChange(1);
   }
+
+  checkAll(isCheck:boolean) {
+    this.isCheckAll = isCheck;
+    this.selections = [];
+    if (isCheck) {
+      for (let i = 0; i < this.currentPageData.length; i++) {
+        this.selections.push(this.currentPageData[i]);
+      }
+    }
+  }
+
+  check(i:number, isCheck:boolean) {
+    if (isCheck) {
+      this.selections.push(this.currentPageData[i]);
+    } else {
+      let index:number;
+      for (let j = 0; j < this.selections.length; j++) {
+        if (this.currentPageData[i] === this.selections[j]) {
+          index = j;
+        }
+      }
+      this.selections.splice(index, 1);
+    }
+  }
 }
