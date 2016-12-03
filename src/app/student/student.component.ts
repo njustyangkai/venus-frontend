@@ -1,6 +1,7 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, OnInit, ViewChild } from '@angular/core';
 import { Router } from '@angular/router';
 import { StudentService } from './student.service';
+import { NgbModal } from '@ng-bootstrap/ng-bootstrap';
 import * as moment from 'moment';
 import * as _ from 'underscore';
 
@@ -21,7 +22,12 @@ export class StudentComponent implements OnInit {
   searchKeyword:string;
   datasCopy:any[];
 
-  constructor(private studentService:StudentService, private router:Router) {
+  @ViewChild('modal1_del') modal1_del:any;
+  modal1:any;
+
+  constructor(private studentService:StudentService,
+              private router:Router,
+              private modalService:NgbModal) {
     this.datas = [];
     this.currentPage = 1;
     this.currentPageData = [];
@@ -128,5 +134,14 @@ export class StudentComponent implements OnInit {
 
   add() {
     this.router.navigate(['/main/addStudent']);
+  }
+
+  del() {
+    this.modal1 = this.modalService.open(
+        this.modal1_del, {
+          backdrop: true,
+          keyboard: true
+        }
+    );
   }
 }

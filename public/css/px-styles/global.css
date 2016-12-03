@@ -38,6 +38,10 @@ button:focus {
     height: 20px;
 }
 
+.h-30 {
+    height: 30px;
+}
+
 input::-webkit-input-placeholder,
 textarea::-webkit-input-placeholder,
 input:-moz-placeholder,

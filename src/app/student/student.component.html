@@ -54,7 +54,6 @@
                 <td>{{data.name}}</td>
                 <td>{{data.sex}}</td>
                 <td>{{data.grade}}</td>
-                <td>{{data.lastLogTime}}</td>
                 <td>
                     <span *ngIf="data.status===1">
                         <i class="fa fa-unlock fa-fw"
@@ -63,9 +62,12 @@
                         <i class="fa fa-lock fa-fw"
                            style="color: #ff625d"></i>锁定</span>
                 </td>
+                <td>{{data.lastLogTime}}</td>
                 <td class="px-table-operate">
                     <button class="px-btn px-btn-operate">编辑</button>
-                    <button class="px-btn px-btn-operate">删除</button>
+                    <button class="px-btn px-btn-operate"
+                            (click)="del()">删除
+                    </button>
                 </td>
             </tr>
             </tbody>
@@ -89,6 +91,10 @@
                     <button class="px-btn px-btn-operate"
                             [disabled]="!selections.length > 0">锁定
                     </button>
+                    <button class="px-btn px-btn-operate"
+                            [disabled]="!selections.length > 0"
+                            (click)="del()">删除
+                    </button>
                 </div>
             </div>
             <div class="px-pagination-wrapper">
@@ -110,3 +116,21 @@
         </div>
     </div>
 </section>
+
+<template #modal1_del>
+    <div class="px-modal-header">
+        <h4>删除</h4>
+        <a role="button" (click)="modal1.close()"></a>
+    </div>
+    <div class="px-modal-body">
+        <div class="px-modal-confirm">
+            <img src="../../../public/images/modal_confirm.svg">
+            <h5>确认删除数据吗？</h5>
+            <small>删除后数据将丢失，不可恢复</small>
+        </div>
+    </div>
+    <div class="px-modal-footer">
+        <button class="px-btn px-btn-delete">删除</button>
+        <button class="px-btn px-btn-cancel" (click)="modal1.close()">关闭</button>
+    </div>
+</template>
