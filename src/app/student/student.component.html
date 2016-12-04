@@ -120,7 +120,8 @@
 <template #modal1_del>
     <div class="px-modal-header">
         <h4>删除</h4>
-        <a role="button" (click)="modal1.close()"></a>
+        <a role="button"
+           (click)="modal1.close()"></a>
     </div>
     <div class="px-modal-body">
         <div class="px-modal-confirm">
@@ -130,7 +131,11 @@
         </div>
     </div>
     <div class="px-modal-footer">
-        <button class="px-btn px-btn-delete">删除</button>
-        <button class="px-btn px-btn-cancel" (click)="modal1.close()">关闭</button>
+        <button class="px-btn px-btn-delete"
+                (click)="gotoDel()">删除
+        </button>
+        <button class="px-btn px-btn-cancel"
+                (click)="modal1.close()">关闭
+        </button>
     </div>
 </template>

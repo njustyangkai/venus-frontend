@@ -144,4 +144,15 @@ export class StudentComponent implements OnInit {
         }
     );
   }
+
+  gotoDel() {
+    this.studentService.del().subscribe(
+        (res:any)=> {
+          console.log(res);
+        },
+        (error:any)=> {
+          console.log(error);
+        }
+    )
+  }
 }
