@@ -9,6 +9,10 @@ import * as moment from 'moment';
 
 export class StudentAddComponent {
   isUsernameUsed:boolean = false;
+
+  isShowSuccess:boolean = false;
+  successMsg:string;
+
   @ViewChild('addForm') addForm:any;
 
   constructor(private router:Router, private studentService:StudentService) {
@@ -16,7 +20,7 @@ export class StudentAddComponent {
 
   add() {
     let formValue = this.addForm.form.value;
-    for(let k in formValue) {
+    for (let k in formValue) {
       if (k === 'birthday') {
         let tmp = formValue[k].year + '-' + formValue[k].month + '-' + formValue[k].day;
         let date = new Date(tmp);
@@ -25,7 +29,14 @@ export class StudentAddComponent {
     }
     this.studentService.add(formValue).subscribe(
         (res:any)=> {
-          console.log(res);
+          if (res.success) {
+            this.successMsg = '添加新学生成功。2s后返回学生列表。';
+            this.isShowSuccess = true;
+            setTimeout(()=> {
+              this.isShowSuccess = false;
+              this.router.navigate(['/main/student']);
+            }, 2000);
+          }
         },
         (error:any)=> {
           console.log(error);
