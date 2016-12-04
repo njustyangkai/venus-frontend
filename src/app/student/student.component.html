@@ -42,7 +42,7 @@
             </tr>
             </thead>
             <tbody>
-            <tr *ngFor="let data of currentPageData">
+            <tr *ngFor="let data of currentPageData;let i=index">
                 <td><input type="checkbox"
                            class="px-checkbox"
                            [checked]="isCheckAll"
@@ -66,7 +66,7 @@
                 <td class="px-table-operate">
                     <button class="px-btn px-btn-operate">编辑</button>
                     <button class="px-btn px-btn-operate"
-                            (click)="del()">删除
+                            (click)="del(data)">删除
                     </button>
                 </td>
             </tr>
@@ -93,7 +93,7 @@
                     </button>
                     <button class="px-btn px-btn-operate"
                             [disabled]="!selections.length > 0"
-                            (click)="del()">删除
+                            (click)="batchDel()">删除
                     </button>
                 </div>
             </div>
@@ -116,6 +116,11 @@
         </div>
     </div>
 </section>
+
+<div class="px-alert px-alert-success"
+     *ngIf="isShowSuccess">
+    <b>成功！</b>{{successMsg}}
+</div>
 
 <template #modal1_del>
     <div class="px-modal-header">

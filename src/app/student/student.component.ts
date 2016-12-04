@@ -22,6 +22,12 @@ export class StudentComponent implements OnInit {
   searchKeyword:string;
   datasCopy:any[];
 
+  isBatchDel:boolean = false;
+  singleOpData:any;
+
+  isShowSuccess:boolean = false;
+  successMsg:string;
+
   @ViewChild('modal1_del') modal1_del:any;
   modal1:any;
 
@@ -41,6 +47,10 @@ export class StudentComponent implements OnInit {
   }
 
   ngOnInit() {
+    this.initData();
+  }
+
+  initData() {
     this.studentService.get().subscribe(
         (res:any)=> {
           if (res.success) {
@@ -136,7 +146,19 @@ export class StudentComponent implements OnInit {
     this.router.navigate(['/main/addStudent']);
   }
 
-  del() {
+  del(data:any) {
+    this.singleOpData = data;
+    this.isBatchDel = false;
+    this.modal1 = this.modalService.open(
+        this.modal1_del, {
+          backdrop: true,
+          keyboard: true
+        }
+    );
+  }
+
+  batchDel() {
+    this.isBatchDel = true;
     this.modal1 = this.modalService.open(
         this.modal1_del, {
           backdrop: true,
@@ -146,13 +168,30 @@ export class StudentComponent implements OnInit {
   }
 
   gotoDel() {
-    this.studentService.del().subscribe(
-        (res:any)=> {
-          console.log(res);
-        },
-        (error:any)=> {
-          console.log(error);
-        }
-    )
+    let del = (v:any)=> {
+      this.studentService.del(v['user_id']).subscribe(
+          (res:any)=> {
+            if (res.success) {
+              this.modal1.close();
+              this.successMsg = '删除成功。2秒后刷新数据。';
+              this.isShowSuccess = true;
+              setTimeout((v)=> {
+                this.isShowSuccess = false;
+                this.initData();
+              }, 2000);
+            }
+          },
+          (error:any)=> {
+            console.log(error);
+          }
+      );
+    };
+    if (!this.isBatchDel) {
+      del(this.singleOpData);
+    } else {
+      this.selections.forEach((v:any)=> {
+        del(v);
+      });
+    }
   }
 }

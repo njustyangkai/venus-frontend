@@ -18,8 +18,8 @@ export class StudentService {
     return this.http.get(ApiConfig.STUDENT).map(this.extractData).catch(this.handleError);
   }
 
-  del() {
-    return this.http.delete(ApiConfig.STUDENT + '/id').map(this.extractData).catch(this.handleError);
+  del(id:string) {
+    return this.http.delete(ApiConfig.STUDENT + '/' + id).map(this.extractData).catch(this.handleError);
   }
 
   extractData(res:any) {
