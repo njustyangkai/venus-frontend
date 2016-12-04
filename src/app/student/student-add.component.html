@@ -93,7 +93,7 @@
                        readonly
                        required
                        placeholder="请选择"
-                       #select1 = "ngModel"
+                       #select1="ngModel"
                        id="select1"
                        name="grade">
                 <i class="fa fa-caret-down"></i>
@@ -183,6 +183,7 @@
                            class="px-radio"
                            value="男"
                            [(ngModel)]="sex"
+                           (ngModelChange)="sexCheck($event)"
                            name="sex">
                     <span>男</span>
                 </label>
@@ -191,6 +192,7 @@
                            class="px-radio"
                            value="女"
                            [(ngModel)]="sex"
+                           (ngModelChange)="sexCheck($event)"
                            name="sex">
                     <span>女</span>
                 </label>
@@ -199,7 +201,7 @@
     </form>
     <div class="px-form-buttons">
         <button class="px-btn px-btn-primary"
-                [disabled]="!addForm.form.valid || input3.value !== input2.value || isUsernameUsed"
+                [disabled]="!addForm.form.valid || input3.value !== input2.value || isUsernameUsed || !isSexChecked"
                 (click)="add()">提交
         </button>
         <button class="px-btn px-btn-cancel"

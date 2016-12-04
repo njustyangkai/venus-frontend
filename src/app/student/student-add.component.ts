@@ -9,11 +9,10 @@ import * as moment from 'moment';
 
 export class StudentAddComponent {
   isUsernameUsed:boolean = false;
+  isSexChecked:boolean = false;
 
   isShowSuccess:boolean = false;
   successMsg:string;
-
-  sex:string = '男';
 
   @ViewChild('addForm') addForm:any;
 
@@ -65,5 +64,9 @@ export class StudentAddComponent {
 
   usernameChange(e:any) {
     this.isUsernameUsed = false;
+  }
+
+  sexCheck(e:any) {
+    this.isSexChecked = true;
   }
 }

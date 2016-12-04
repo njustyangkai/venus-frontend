@@ -43,3 +43,11 @@
     background: url("../../images/icon_radio_selected.png") no-repeat left;
     color: #4d5761;
 }
+
+.px-radio-group span.validation {
+    display: block;
+    padding: 2px 0 0 10px;
+    font-size: 12px;
+    position: absolute;
+    color: #ff5b55;
+}
