@@ -28,8 +28,13 @@ export class StudentComponent implements OnInit {
   isShowSuccess:boolean = false;
   successMsg:string;
 
-  @ViewChild('modal1_del') modal1_del:any;
+  @ViewChild('modal1_template') modal1_template:any;
   modal1:any;
+
+  @ViewChild('modal2_template') modal2_template:any;
+  modal2:any;
+
+  status:number;
 
   constructor(private studentService:StudentService,
               private router:Router,
@@ -150,7 +155,7 @@ export class StudentComponent implements OnInit {
     this.singleOpData = data;
     this.isBatchDel = false;
     this.modal1 = this.modalService.open(
-        this.modal1_del, {
+        this.modal1_template, {
           backdrop: true,
           keyboard: true
         }
@@ -160,7 +165,7 @@ export class StudentComponent implements OnInit {
   batchDel() {
     this.isBatchDel = true;
     this.modal1 = this.modalService.open(
-        this.modal1_del, {
+        this.modal1_template, {
           backdrop: true,
           keyboard: true
         }
@@ -193,5 +198,46 @@ export class StudentComponent implements OnInit {
         del(v);
       });
     }
+  }
+
+  lock() {
+    this.status = 0;
+    this.modal2 = this.modalService.open(
+        this.modal2_template, {
+          backdrop: true,
+          keyboard: true
+        }
+    );
+  }
+
+  unlock() {
+    this.status = 1;
+    this.modal2 = this.modalService.open(
+        this.modal2_template, {
+          backdrop: true,
+          keyboard: true
+        }
+    );
+  }
+
+  gotoChangeStatus() {
+    this.selections.forEach((v:any)=> {
+      this.studentService.changeStatus(v['user_id'], {status: this.status}).subscribe(
+          (res:any)=> {
+            if (res.success) {
+              this.modal2.close();
+              this.successMsg = '操作成功。2秒后刷新数据。';
+              this.isShowSuccess = true;
+              setTimeout((v)=> {
+                this.isShowSuccess = false;
+                this.initData();
+              }, 2000);
+            }
+          },
+          (error:any)=> {
+            console.log(error);
+          }
+      );
+    });
   }
 }

@@ -36,8 +36,8 @@
                 <th>姓名</th>
                 <th>性别</th>
                 <th>年级</th>
-                <th>最后登录时间</th>
                 <th>状态</th>
+                <th>最后登录时间</th>
                 <th style="width: 200px;">操作</th>
             </tr>
             </thead>
@@ -86,10 +86,12 @@
                 </div>
                 <div class="tfoot-operate-buttons">
                     <button class="px-btn px-btn-operate"
-                            [disabled]="!selections.length > 0">激活
+                            [disabled]="!selections.length > 0"
+                            (click)="unlock()">激活
                     </button>
                     <button class="px-btn px-btn-operate"
-                            [disabled]="!selections.length > 0">锁定
+                            [disabled]="!selections.length > 0"
+                            (click)="lock()">锁定
                     </button>
                     <button class="px-btn px-btn-operate"
                             [disabled]="!selections.length > 0"
@@ -122,7 +124,7 @@
     <b>成功！</b>{{successMsg}}
 </div>
 
-<template #modal1_del>
+<template #modal1_template>
     <div class="px-modal-header">
         <h4>删除</h4>
         <a role="button"
@@ -141,6 +143,29 @@
         </button>
         <button class="px-btn px-btn-cancel"
                 (click)="modal1.close()">关闭
+        </button>
+    </div>
+</template>
+
+<template #modal2_template>
+    <div class="px-modal-header">
+        <h4>确认</h4>
+        <a role="button"
+           (click)="modal2.close()"></a>
+    </div>
+    <div class="px-modal-body">
+        <div class="px-modal-confirm">
+            <img src="../../../public/images/modal_confirm.svg">
+            <h5>确认提交吗？</h5>
+            <small>提交后可以查看提交数据</small>
+        </div>
+    </div>
+    <div class="px-modal-footer">
+        <button class="px-btn px-btn-primary"
+                (click)="gotoChangeStatus()">确认
+        </button>
+        <button class="px-btn px-btn-cancel"
+                (click)="modal2.close()">关闭
         </button>
     </div>
 </template>
