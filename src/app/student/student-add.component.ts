@@ -13,6 +13,8 @@ export class StudentAddComponent {
   isShowSuccess:boolean = false;
   successMsg:string;
 
+  sex:string = '男';
+
   @ViewChild('addForm') addForm:any;
 
   constructor(private router:Router, private studentService:StudentService) {
@@ -27,15 +29,28 @@ export class StudentAddComponent {
         formValue[k] = moment(date).format('YYYY-MM-DD');
       }
     }
-    this.studentService.add(formValue).subscribe(
+    this.studentService.isUsernameUsed({username: formValue.username}).subscribe(
         (res:any)=> {
           if (res.success) {
-            this.successMsg = '添加新学生成功。2s后返回学生列表。';
-            this.isShowSuccess = true;
-            setTimeout(()=> {
-              this.isShowSuccess = false;
-              this.router.navigate(['/main/student']);
-            }, 2000);
+            if (res.data) {
+              this.isUsernameUsed = true;
+            } else {
+              this.studentService.add(formValue).subscribe(
+                  (res:any)=> {
+                    if (res.success) {
+                      this.successMsg = '添加新学生成功。2s后返回学生列表。';
+                      this.isShowSuccess = true;
+                      setTimeout(()=> {
+                        this.isShowSuccess = false;
+                        this.router.navigate(['/main/student']);
+                      }, 2000);
+                    }
+                  },
+                  (error:any)=> {
+                    console.log(error);
+                  }
+              );
+            }
           }
         },
         (error:any)=> {
@@ -46,5 +61,9 @@ export class StudentAddComponent {
 
   cancel() {
     this.router.navigate(['/main/student']);
+  }
+
+  usernameChange(e:any) {
+    this.isUsernameUsed = false;
   }
 }

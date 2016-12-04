@@ -24,13 +24,14 @@
                        pattern="^[a-zA-Z0-9_]+$"
                        #input1="ngModel"
                        [(ngModel)]="username"
+                       (ngModelChange)="usernameChange($event)"
                        name="username">
                 <span class="notes"
-                      *ngIf="!input1.errors || input1.pristine">只能为字母、数字和下划线</span>
+                      *ngIf="(!input1.errors && !isUsernameUsed) || input1.pristine">只能为字母、数字和下划线</span>
                 <span class="validation"
                       *ngIf="input1.errors?.required && !input1.pristine">用户名不能为空</span>
                 <span class="validation"
-                      *ngIf="input1.errors?.pattern && !isUsernameUsed">用户名只能为字母、数字和下划线</span>
+                      *ngIf="input1.errors?.pattern">用户名只能为字母、数字和下划线</span>
                 <span class="validation"
                       *ngIf="isUsernameUsed">此用户名已经被占用</span>
             </div>
@@ -90,7 +91,9 @@
                 <input ngbDropdownToggle
                        [(ngModel)]="grade"
                        readonly
+                       required
                        placeholder="请选择"
+                       #select1 = "ngModel"
                        id="select1"
                        name="grade">
                 <i class="fa fa-caret-down"></i>
@@ -117,6 +120,7 @@
                 <input class="px-datepicker lg addon"
                        ngbDatepicker
                        id="input8"
+                       required
                        [(ngModel)]="birthday"
                        name="birthday"
                        placeholder="请选择"

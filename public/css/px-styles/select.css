@@ -103,3 +103,15 @@
     width: 400px;
     border-radius: 2px;
 }
+
+.px-select span.validation {
+    display: block;
+    padding: 2px 0 0 10px;
+    font-size: 12px;
+    position: absolute;
+    color: #ff5b55;
+}
+
+.px-select input.ng-invalid.ng-dirty {
+    border-color: #ff5b55;
+}

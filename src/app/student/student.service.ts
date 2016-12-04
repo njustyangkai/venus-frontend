@@ -26,6 +26,10 @@ export class StudentService {
     return this.http.put(ApiConfig.USER + '/changeStatus/' + id, data).map(this.extractData).catch(this.handleError);
   }
 
+  isUsernameUsed(data:any) {
+    return this.http.post(ApiConfig.USER + '/isUsernameUsed', data).map(this.extractData).catch(this.handleError);
+  }
+
   extractData(res:any) {
     let body = res.json();
     return body || {};
