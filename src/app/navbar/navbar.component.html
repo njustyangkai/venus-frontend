@@ -27,6 +27,7 @@
                 My Classes
             </a>
             <a class="px-navbar-link"
+               *ngIf="role === '0'"
                role="button"
                (click)="gotoStudent()">
                 Students

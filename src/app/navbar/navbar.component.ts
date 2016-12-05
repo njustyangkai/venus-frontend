@@ -11,6 +11,7 @@ import { ApiConfig } from '../util/ApiConfig';
 
 export class NavbarComponent {
   username:string;
+  role:string;
 
   isPwdRightFlag:boolean = true;
 
@@ -27,6 +28,7 @@ export class NavbarComponent {
               private modalService:NgbModal,
               private http:HttpService) {
     this.username = window.localStorage.getItem('name') || window.localStorage.getItem('username');
+    this.role = window.localStorage.getItem('role');
   }
 
   open1() {
