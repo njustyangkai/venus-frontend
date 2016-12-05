@@ -86,3 +86,26 @@
 .a-btn-code-example:focus {
     color: #00abff;
 }
+
+.px-description-list {
+    font-size: 14px;
+    border: 0;
+}
+
+.px-description-list td {
+    padding: 10px 0 10px 20px;
+    border: 0;
+}
+
+.px-description-list tr td:first-child {
+    color: #4d5761;
+    font-weight: normal;
+    width: 200px;
+    text-align: right;
+}
+
+.px-description-list tr td:last-child {
+    color: #7c868d;
+    font-weight: normal;
+    text-align: left;
+}
