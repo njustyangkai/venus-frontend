@@ -66,6 +66,7 @@
                 <td>{{data.lastLogTime}}</td>
                 <td class="px-table-operate">
                     <button class="px-btn px-btn-operate"
+                            [disabled]="data['student_id'] === null"
                             (click)="edit(data)">编辑
                     </button>
                     <button class="px-btn px-btn-operate"

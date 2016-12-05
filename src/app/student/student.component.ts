@@ -42,7 +42,7 @@ export class StudentComponent implements OnInit {
     this.datas = [];
     this.currentPage = 1;
     this.currentPageData = [];
-    this.pageSize = 5;
+    this.pageSize = 10;
     this.pageNum = 1;
     this.size = 0;
     this.hasData = false;
