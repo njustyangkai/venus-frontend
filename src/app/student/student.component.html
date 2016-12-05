@@ -50,7 +50,8 @@
                            (change)="check(i, cb.checked)"></td>
                 <td>{{data.i + 1}}</td>
                 <td><a role="button"
-                       class="px-table-link">{{data.username}}</a></td>
+                       class="px-table-link"
+                       (click)="gotoDetail(data)">{{data.username}}</a></td>
                 <td>{{data.name}}</td>
                 <td>{{data.sex}}</td>
                 <td>{{data.grade}}</td>
