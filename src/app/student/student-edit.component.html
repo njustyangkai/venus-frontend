@@ -1,0 +1,45 @@
+<section class="px-content-header">
+    <ol class="breadcrumb">
+        <li class="breadcrumb-item"><a role="button"
+                                       routerLink="/main/student">学生列表</a></li>
+        <li class="breadcrumb-item">编辑学生信息</li>
+    </ol>
+    <h1>编辑学生信息</h1>
+    <small>
+        密码重置，基本信息修改
+    </small>
+    <div class="operate">
+        <button class="px-btn px-btn-default"
+                (click)="resetPwd()">密码重置
+        </button>
+    </div>
+</section>
+
+
+<template #modal1_template>
+    <div class="px-modal-header">
+        <h4>确认</h4>
+        <a role="button"
+           (click)="modal1.close()"></a>
+    </div>
+    <div class="px-modal-body">
+        <div class="px-modal-confirm">
+            <img src="../../../public/images/modal_confirm.svg">
+            <h5>确认将密码重置为123456吗？</h5>
+            <small>提交后可以查看提交数据</small>
+        </div>
+    </div>
+    <div class="px-modal-footer">
+        <button class="px-btn px-btn-primary"
+                (click)="gotoResetPwd()">确认
+        </button>
+        <button class="px-btn px-btn-cancel"
+                (click)="modal1.close()">关闭
+        </button>
+    </div>
+</template>
+
+<div class="px-alert px-alert-success"
+     *ngIf="isShowSuccess">
+    <b>成功！</b>{{successMsg}}
+</div>

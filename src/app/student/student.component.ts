@@ -240,4 +240,9 @@ export class StudentComponent implements OnInit {
       );
     });
   }
+
+  edit(data:any) {
+    this.studentService.currentData = data;
+    this.router.navigate(['/main/editStudent']);
+  }
 }

@@ -21,7 +21,7 @@ export class HttpService {
     return this.getHttp('post', uri, data);
   }
 
-  put(uri:string, data:any) {
+  put(uri:string, data?:any) {
     return this.getHttp('put', uri, data);
   }
 

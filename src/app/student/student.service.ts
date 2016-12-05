@@ -6,6 +6,8 @@ import { Observable } from 'rxjs/Observable';
 @Injectable()
 export class StudentService {
 
+  currentData:any;
+
   constructor(private http:HttpService) {
 
   }
@@ -28,6 +30,10 @@ export class StudentService {
 
   isUsernameUsed(data:any) {
     return this.http.post(ApiConfig.USER + '/isUsernameUsed', data).map(this.extractData).catch(this.handleError);
+  }
+
+  resetPwd(id:string) {
+    return this.http.put(ApiConfig.USER + '/resetPwd/' + id).map(this.extractData).catch(this.handleError);
   }
 
   extractData(res:any) {
