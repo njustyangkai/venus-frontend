@@ -3,6 +3,7 @@ import { Router } from '@angular/router';
 import { StudentService } from './student.service';
 import { NgbModal } from '@ng-bootstrap/ng-bootstrap';
 import * as moment from 'moment';
+import * as _ from 'underscore';
 
 @Component({
   templateUrl: './student.component.html'
@@ -247,6 +248,6 @@ export class StudentComponent implements OnInit {
 
   gotoDetail(data:any) {
     this.studentService.currentData = data;
-    this.router.navigate['/main/studentDetail'];
+    this.router.navigate(['/main/studentDetail']);
   }
 }

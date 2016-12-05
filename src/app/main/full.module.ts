@@ -15,6 +15,7 @@ import { StudentComponent } from '../student/student.component';
 import { StudentService } from '../student/student.service';
 import { StudentAddComponent } from '../student/student-add.component';
 import { StudentEditComponent } from '../student/student-edit.component';
+import { StudentDetailComponent } from '../student/student-detail.component';
 
 @NgModule({
   declarations: [
@@ -25,7 +26,8 @@ import { StudentEditComponent } from '../student/student-edit.component';
     RegisterComponent,
     StudentComponent,
     StudentAddComponent,
-    StudentEditComponent
+    StudentEditComponent,
+    StudentDetailComponent
   ],
   imports: [
     SharedModule,
