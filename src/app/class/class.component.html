@@ -1,40 +1,42 @@
 <section class="px-content-header">
-  <h1>My Classes</h1>
-  <small>You can check your classes here.</small>
-  <div class="operate">
-    <button class="px-btn px-btn-default" (click)="getNow();dp.navigateTo()">今天</button>
-  </div>
+    <h1>My Classes</h1>
+    <small>You can check your classes here.</small>
+    <div class="operate">
+        <button class="px-btn px-btn-default"
+                (click)="getNow();dp.navigateTo()">今天
+        </button>
+    </div>
 </section>
 
 <section class="px-content">
-  <div class="h-20"></div>
-  <div class="row">
-    <div class="col-md-3">
-      <div class="date">
-        <ngb-datepicker #dp [(ngModel)]="currentDate"
-                        (ngModelChange)="dateChange($event)"></ngb-datepicker>
-      </div>
+    <div class="h-20"></div>
+    <div class="row">
+        <div class="col-md-3">
+            <div class="date">
+                <ngb-datepicker #dp
+                                [(ngModel)]="currentDate"
+                                (ngModelChange)="dateChange($event)"></ngb-datepicker>
+            </div>
+        </div>
+        <div class="class-table-wrapper col-md-9">
+            <table class="class-table">
+                <thead>
+                <tr>
+                    <th></th>
+                    <th *ngFor="let day of weekdays; let i = index">
+                        {{day}} {{setDate(i + 1)}}
+                    </th>
+                </tr>
+                </thead>
+                <tbody>
+                <tr *ngFor="let clock of clocks">
+                    <td>{{clock}}</td>
+                    <td *ngFor="let day of weekdays; let i = index"
+                        [ngClass]="setDayClass(i + 1)">
+                    </td>
+                </tr>
+                </tbody>
+            </table>
+        </div>
     </div>
-    <div class="class-table-wrapper col-md-9">
-      <table class="class-table">
-        <thead>
-        <tr>
-          <th></th>
-          <th *ngFor="let day of weekdays; let i = index">
-            {{day}} {{setDate(i + 1)}}
-          </th>
-        </tr>
-        </thead>
-        <tbody>
-        <tr *ngFor="let clock of clocks">
-          <td>{{clock}}</td>
-          <td *ngFor="let day of weekdays; let i = index" [ngClass]="setDayClass(i + 1)">
-          </td>
-        </tr>
-        </tbody>
-      </table>
-    </div>
-  </div>
-
-
 </section>
