@@ -5,4 +5,166 @@
             新注册的学生，需要完善学生信息
         </small>
     </section>
+    <section class="px-content">
+        <div class="h-20"></div>
+        <form class="px-form"
+              #editForm="ngForm"
+              novalidate>
+            <div class="px-form-control">
+                <label for="input1">用户名</label>
+                <div class="px-input-wrapper">
+                    <input class="px-input lg"
+                           id="input1"
+                           disabled
+                           #input1="ngModel"
+                           [(ngModel)]="username"
+                           name="username">
+                    <span class="notes">用户名是用户唯一身份标识，不允许编辑</span>
+                </div>
+            </div>
+            <div class="px-form-control">
+                <label for="input4">姓名</label>
+                <div class="px-input-wrapper">
+                    <input class="px-input lg"
+                           id="input4"
+                           required
+                           pattern="^[\u4E00-\u9FA5]+$"
+                           #input4="ngModel"
+                           [(ngModel)]="name"
+                           name="name">
+                <span class="notes"
+                      *ngIf="!input4.errors || input4.pristine">只能为中文</span>
+                <span class="validation"
+                      *ngIf="input4.errors?.required && !input4.pristine">姓名不能为空</span>
+                <span class="validation"
+                      *ngIf="input4.errors?.pattern">姓名只能为中文</span>
+                </div>
+            </div>
+            <div class="px-form-control">
+                <label for="select1">年级</label>
+                <div ngbDropdown
+                     class="px-select">
+                    <input ngbDropdownToggle
+                           [(ngModel)]="grade"
+                           readonly
+                           required
+                           placeholder="请选择"
+                           #select1="ngModel"
+                           id="select1"
+                           name="grade">
+                    <i class="fa fa-caret-down"></i>
+                    <div class="dropdown-menu">
+                        <button (click)="grade = '一年级'">一年级</button>
+                        <button (click)="grade = '二年级'">二年级</button>
+                        <button (click)="grade = '三年级'">三年级</button>
+                        <button (click)="grade = '四年级'">四年级</button>
+                        <button (click)="grade = '五年级'">五年级</button>
+                        <button (click)="grade = '六年级'">六年级</button>
+                        <button (click)="grade = '初一'">初一</button>
+                        <button (click)="grade = '初二'">初二</button>
+                        <button (click)="grade = '初三'">初三</button>
+                        <button (click)="grade = '高一'">高一</button>
+                        <button (click)="grade = '高二'">高二</button>
+                        <button (click)="grade = '高三'">高三</button>
+                        <button (click)="grade = '其他'">其他</button>
+                    </div>
+                </div>
+            </div>
+            <div class="px-form-control">
+                <label for="input8">出生日期</label>
+                <div class="px-datepicker-wrapper">
+                    <input class="px-datepicker lg addon"
+                           ngbDatepicker
+                           id="input8"
+                           required
+                           [(ngModel)]="birthday"
+                           name="birthday"
+                           placeholder="请选择"
+                           [minDate]="{year: 1980, month: 1, day: 1}"
+                           #d="ngbDatepicker"
+                           (click)="d.open()">
+                <span class="addon"
+                      (click)="d.toggle()">
+                    <i class="fa fa-calendar"></i>
+                </span>
+                </div>
+            </div>
+            <div class="px-form-control">
+                <label for="input5">邮箱</label>
+                <div class="px-input-wrapper">
+                    <input class="px-input lg"
+                           id="input5"
+                           required
+                           pattern="([a-zA-Z0-9_\.\-])+\@(([a-zA-Z0-9\-])+\.)+([a-zA-Z0-9]{2,4})+"
+                           #input5="ngModel"
+                           [(ngModel)]="email"
+                           name="email">
+                <span class="validation"
+                      *ngIf="input5.errors?.pattern">邮箱格式有误</span>
+                <span class="validation"
+                      *ngIf="input5.errors?.required && !input5.pristine">邮箱不能为空</span>
+                </div>
+            </div>
+            <div class="px-form-control">
+                <label for="input6">学生电话</label>
+                <div class="px-input-wrapper">
+                    <input class="px-input lg"
+                           id="input6"
+                           pattern="^[0-9]+$"
+                           #input6="ngModel"
+                           [(ngModel)]="phone"
+                           name="phone">
+                <span class="validation"
+                      *ngIf="input6.errors?.pattern">电话格式有误</span>
+                </div>
+            </div>
+            <div class="px-form-control">
+                <label for="input7">家长电话</label>
+                <div class="px-input-wrapper">
+                    <input class="px-input lg"
+                           id="input7"
+                           pattern="^[0-9]+$"
+                           #input7="ngModel"
+                           [(ngModel)]="parentPhone"
+                           name="parentPhone">
+                <span class="validation"
+                      *ngIf="input7.errors?.pattern">电话格式有误</span>
+                </div>
+            </div>
+            <div class="px-form-control">
+                <label>性别</label>
+                <div class="px-radio-group">
+                    <label class="px-radio-wrapper">
+                        <input type="radio"
+                               class="px-radio"
+                               value="男"
+                               [(ngModel)]="sex"
+                               (ngModelChange)="sexCheck($event)"
+                               name="sex">
+                        <span>男</span>
+                    </label>
+                    <label class="px-radio-wrapper">
+                        <input type="radio"
+                               class="px-radio"
+                               value="女"
+                               [(ngModel)]="sex"
+                               (ngModelChange)="sexCheck($event)"
+                               name="sex">
+                        <span>女</span>
+                    </label>
+                </div>
+            </div>
+        </form>
+        <div class="px-form-buttons">
+            <button class="px-btn px-btn-primary"
+                    [disabled]="!editForm.form.valid || !isSexChecked"
+                    (click)="edit()">提交
+            </button>
+        </div>
+    </section>
+</div>
+
+<div class="px-alert px-alert-success"
+     *ngIf="isShowSuccess">
+    <b>成功！</b>{{successMsg}}
 </div>
