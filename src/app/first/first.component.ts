@@ -36,7 +36,9 @@ export class FirstComponent {
     }
     this.http.post(ApiConfig.STUDENT + '/' + window.localStorage.getItem('userId'), formValue).subscribe(
         (res:any)=> {
+          res = res.json();
           if (res.success) {
+            window.localStorage.setItem('name', formValue['name']);
             this.successMsg = '提交成功。2s后登陆控制台。';
             this.isShowSuccess = true;
             setTimeout(()=> {
