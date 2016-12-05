@@ -9,9 +9,33 @@
 </section>
 
 <section class="px-content">
-    <div class="h-20"></div>
     <div class="row">
         <div class="col-md-3">
+            <div style="padding: 9px 0;">
+                <div ngbDropdown
+                     class="px-select student-picker">
+                    <input ngbDropdownToggle
+                           [(ngModel)]="grade"
+                           readonly
+                           placeholder="请选择">
+                    <i class="fa fa-caret-down"></i>
+                    <div class="dropdown-menu">
+                        <button (click)="grade = '一年级'">一年级</button>
+                        <button (click)="grade = '二年级'">二年级</button>
+                        <button (click)="grade = '三年级'">三年级</button>
+                        <button (click)="grade = '四年级'">四年级</button>
+                        <button (click)="grade = '五年级'">五年级</button>
+                        <button (click)="grade = '六年级'">六年级</button>
+                        <button (click)="grade = '初一'">初一</button>
+                        <button (click)="grade = '初二'">初二</button>
+                        <button (click)="grade = '初三'">初三</button>
+                        <button (click)="grade = '高一'">高一</button>
+                        <button (click)="grade = '高二'">高二</button>
+                        <button (click)="grade = '高三'">高三</button>
+                        <button (click)="grade = '其他'">其他</button>
+                    </div>
+                </div>
+            </div>
             <div class="date">
                 <ngb-datepicker #dp
                                 [(ngModel)]="currentDate"
@@ -19,6 +43,7 @@
             </div>
         </div>
         <div class="class-table-wrapper col-md-9">
+            <div style="height: 19px;"></div>
             <table class="class-table">
                 <thead>
                 <tr>

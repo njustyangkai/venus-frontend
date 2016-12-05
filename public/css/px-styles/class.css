@@ -64,7 +64,6 @@
 
 .date {
     font-size: 14px;
-    padding-top: 35px;
 }
 
 .date table {
@@ -120,4 +119,24 @@
 
 .date-operate {
     margin-top: 10px;
+}
+
+.student-picker {
+    margin-bottom: 0;
+}
+
+.student-picker input {
+    width: 262px;
+}
+
+.student-picker i.fa-caret-down {
+    left: 242px;
+}
+
+.student-picker .dropdown-menu {
+    width: 262px;
+}
+
+.px-select .dropdown-menu button {
+    width: 260px;
 }
