@@ -30,7 +30,7 @@ export class StudentEditComponent implements OnInit {
   extractData() {
     let v = this.currentData;
     for (let k in v) {
-      if (k === 'birthday') {
+      if (k === 'birthday' && v[k]) {
         let date = new Date(v[k]);
         v[k] = {
           year: date.getFullYear(),
