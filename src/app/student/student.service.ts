@@ -24,6 +24,10 @@ export class StudentService {
     return this.http.delete(ApiConfig.STUDENT + '/' + id).map(this.extractData).catch(this.handleError);
   }
 
+  edit(id:string, data:any) {
+    return this.http.put(ApiConfig.STUDENT + '/' + id, data).map(this.extractData).catch(this.handleError);
+  }
+
   changeStatus(id:string, data:any) {
     return this.http.put(ApiConfig.USER + '/changeStatus/' + id, data).map(this.extractData).catch(this.handleError);
   }
