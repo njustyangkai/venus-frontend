@@ -35,7 +35,24 @@ export class LoginComponent implements OnInit {
             window.localStorage.setItem('userId', res.data.user['user_id']);
             window.localStorage.setItem('username', res.data.user['username']);
             window.localStorage.setItem('role', res.data.role);
-            this.router.navigate(['/main']);
+            if (res.data.role === '1') {
+              this.http.get(ApiConfig.STUDENT + '/' + res.data.user['user_id']).subscribe(
+                  (res:any)=> {
+                    res = res.json();
+                    if (res.data) {
+                      window.localStorage.setItem('name', res.data['name']);
+                      this.router.navigate(['/main']);
+                    } else {
+                      this.router.navigate(['/first']);
+                    }
+                  },
+                  (error:any)=> {
+                    console.log(error);
+                  }
+              );
+            } else {
+              this.router.navigate(['/main']);
+            }
           } else {
             this.alarmMsg = res.message;
             this.isShowAlarm = true;

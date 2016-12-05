@@ -26,7 +26,7 @@ export class NavbarComponent {
   constructor(private router:Router,
               private modalService:NgbModal,
               private http:HttpService) {
-    this.username = window.localStorage.getItem('username');
+    this.username = window.localStorage.getItem('name') || window.localStorage.getItem('username');
   }
 
   open1() {

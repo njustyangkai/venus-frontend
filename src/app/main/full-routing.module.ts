@@ -8,6 +8,7 @@ import { StudentComponent } from '../student/student.component';
 import { StudentAddComponent } from '../student/student-add.component';
 import { StudentEditComponent } from '../student/student-edit.component';
 import { StudentDetailComponent } from '../student/student-detail.component';
+import { FirstComponent } from '../first/first.component';
 
 const routes = [
   {
@@ -22,6 +23,10 @@ const routes = [
   {
     path: 'register',
     component: RegisterComponent
+  },
+  {
+    path: 'first',
+    component: FirstComponent
   },
   {
     path: 'main',

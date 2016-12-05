@@ -16,6 +16,7 @@ import { StudentService } from '../student/student.service';
 import { StudentAddComponent } from '../student/student-add.component';
 import { StudentEditComponent } from '../student/student-edit.component';
 import { StudentDetailComponent } from '../student/student-detail.component';
+import { FirstComponent } from '../first/first.component';
 
 @NgModule({
   declarations: [
@@ -24,6 +25,7 @@ import { StudentDetailComponent } from '../student/student-detail.component';
     NavbarComponent,
     ClassComponent,
     RegisterComponent,
+    FirstComponent,
     StudentComponent,
     StudentAddComponent,
     StudentEditComponent,
