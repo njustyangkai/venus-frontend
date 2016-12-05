@@ -17,6 +17,8 @@ import { StudentAddComponent } from '../student/student-add.component';
 import { StudentEditComponent } from '../student/student-edit.component';
 import { StudentDetailComponent } from '../student/student-detail.component';
 import { FirstComponent } from '../first/first.component';
+import { StudentPickerComponent } from '../class/student-picker.component';
+import { ClassService } from '../class/class.service';
 
 @NgModule({
   declarations: [
@@ -29,7 +31,8 @@ import { FirstComponent } from '../first/first.component';
     StudentComponent,
     StudentAddComponent,
     StudentEditComponent,
-    StudentDetailComponent
+    StudentDetailComponent,
+    StudentPickerComponent
   ],
   imports: [
     SharedModule,
@@ -39,7 +42,8 @@ import { FirstComponent } from '../first/first.component';
   providers: [
     HttpService,
     FullService,
-    StudentService
+    StudentService,
+    ClassService
   ]
 })
 

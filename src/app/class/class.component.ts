@@ -1,4 +1,4 @@
-import { Component, Injectable } from '@angular/core';
+import { Component, Injectable, OnInit } from '@angular/core';
 import { NgbDatepickerI18n } from '@ng-bootstrap/ng-bootstrap';
 import * as moment from 'moment';
 
@@ -41,9 +41,11 @@ export class CustomDatepickerI18n extends NgbDatepickerI18n {
   ]
 })
 
-export class ClassComponent {
+export class ClassComponent implements OnInit {
   clocks:string[];
   weekdays:any;
+
+  role:string;
 
   currentDate:any;
   currentWeekday:number;
@@ -58,6 +60,11 @@ export class ClassComponent {
     ];
     this.weekdays = ['一', '二', '三', '四', '五', '六', '日'];
     this.getNow();
+    this.role = window.localStorage.getItem('role');
+  }
+
+  ngOnInit() {
+
   }
 
   getNow() {

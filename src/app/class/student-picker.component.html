@@ -1,0 +1,10 @@
+<div ngbDropdown
+     class="px-select student-picker">
+    <input ngbDropdownToggle
+           [(ngModel)]="student.name"
+           readonly>
+    <i class="fa fa-caret-down"></i>
+    <div class="dropdown-menu">
+        <button (click)="studentId = '一年级'">一年级</button>
+    </div>
+</div>
