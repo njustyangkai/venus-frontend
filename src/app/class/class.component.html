@@ -22,6 +22,16 @@
                                 [(ngModel)]="currentDate"
                                 (ngModelChange)="dateChange($event)"></ngb-datepicker>
             </div>
+            <div style="height: 9px;"></div>
+            <div style="position: relative" *ngIf="role==='0'">
+                <div class="px-timepicker"
+                     style="display: inline-block">
+                    <ngb-timepicker [(ngModel)]="currentTime"></ngb-timepicker>
+                </div>
+                <button class="px-btn px-btn-success create"
+                        style="position: absolute;top:20px;margin-left: 13px;width: 130px;">添加课程
+                </button>
+            </div>
         </div>
         <div class="class-table-wrapper col-md-9">
             <div style="height: 19px;"></div>

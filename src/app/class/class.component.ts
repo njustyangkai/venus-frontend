@@ -48,6 +48,7 @@ export class ClassComponent implements OnInit {
   role:string;
 
   currentDate:any;
+  currentTime:any;
   currentWeekday:number;
 
   constructor(private _i18n:I18n) {
@@ -73,6 +74,10 @@ export class ClassComponent implements OnInit {
       year: date.getFullYear(),
       month: date.getMonth() + 1,
       day: date.getDate()
+    };
+    this.currentTime = {
+      hour: date.getHours(),
+      minute: date.getMinutes()
     };
     this.getDate();
   }

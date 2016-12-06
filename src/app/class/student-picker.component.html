@@ -5,6 +5,8 @@
            readonly>
     <i class="fa fa-caret-down"></i>
     <div class="dropdown-menu">
-        <button (click)="studentId = '一年级'">一年级</button>
+        <button *ngFor="let s of studentList"
+                (click)="student = s">{{s.name}}
+        </button>
     </div>
 </div>

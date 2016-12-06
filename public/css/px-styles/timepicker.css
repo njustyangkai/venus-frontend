@@ -1,0 +1,54 @@
+/*****************************/
+/* timepicker
+/****************************/
+.px-timepicker {
+    font-size: 14px;
+}
+
+.px-timepicker input.form-control {
+    font-size: 14px;
+    line-height: 1;
+    padding: 0;
+    border-radius: 2px;
+    outline: none;
+    height: 36px;
+    border: 1px solid #ddd;
+    color: #4d5761;
+    padding-left: 10px;
+}
+
+.px-timepicker input.form-control:focus {
+    border-color: #3fb3ff;
+    outline: none;
+}
+
+.px-timepicker .chevron:before {
+    border-width: 1px 1px 0 0 !important;
+    border-color: #00abff;
+}
+
+.px-timepicker .btn-outline-primary {
+    font-weight: normal;
+    font-size: 14px;
+    padding: 0 12px;
+    height: 36px;
+    line-height: 1;
+    border-radius: 2px;
+    outline: none;
+    color: #00abff;
+    background-color: #fff;
+    border-color: #eee;
+}
+
+.px-timepicker .btn-outline-primary:hover {
+    color: #00abff;
+    border-color: #eee;
+    background-color: #fcfcfc;
+}
+
+.px-timepicker .btn-outline-primary:focus {
+    outline: none;
+    color: #fff;
+    background-color: #00abff;
+    border-color: #00abff;
+}

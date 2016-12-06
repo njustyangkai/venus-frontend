@@ -15,12 +15,20 @@ export class StudentPickerComponent implements OnInit {
       id: 'all',
       name: '全部'
     };
+    this.studentList = [this.student];
   }
 
   ngOnInit() {
     this.classService.getStudent().subscribe(
         (res:any)=> {
-          console.log(res);
+          if (res.success) {
+            res.data.forEach((v:any) => {
+              this.studentList.push({
+                id: v['student_id'],
+                name: v['name']
+              });
+            });
+          }
         },
         (error:any)=> {
           console.log(error);
