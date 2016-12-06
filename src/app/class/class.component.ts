@@ -248,12 +248,12 @@ export class ClassComponent implements OnInit {
 
   getColor() {
     const colors = [
-      '#00aff0', '#a20025', '#647687', '#00aba9', '#d80073', '#6d8764',
-      '#008a00', '#dc4fad', '#825a2c', '#60a917', '#aa00ff', '#e3c800',
-      '#a4c400', '#6a00ff', '#f0a30a', '#555555', '#222222', '#63362f',
-      '#128023', '#bf5a15', '#9a1616', '#9a165a', '#57169a', '#16499a'];
+      '#1abc9c', '#2ecc71', '#3498db', '#9b59b6', '#34495e',
+      '#16a085', '#27ae60', '#2980b6', '#8e44ad', '#2c3e50',
+      '#f1c404', '#e67e22', '#e74c3c', '#555555', '#95a5a6', 
+      '#f39c12', '#d35400', '#c0392b', '#bdc3c7', '#7f8c8d'];
 
-    return colors[Math.floor(Math.random() * 23) % 23];
+    return colors[Math.floor(Math.random() * 19) % 19];
   }
 
   del(k:string, data:any) {

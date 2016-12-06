@@ -9,44 +9,58 @@
         查看学生详细信息，上课情况
     </small>
     <div class="operate">
-        <button class="px-btn px-btn-default"
+        <button *ngIf="pageTag === 'detail'"
+                class="px-btn px-btn-default"
                 (click)="gotoEdit()">编辑
+        </button>
+        <button *ngIf="pageTag === 'detail'"
+                class="px-btn px-btn-default"
+                (click)="gotoClass()">上课情况
+        </button>
+        <button *ngIf="pageTag === 'class'"
+                class="px-btn px-btn-default"
+                (click)="gotoDetail()">学生详情
         </button>
     </div>
 </section>
 
 <section class="px-content">
-    <div class="h-20"></div>
-    <table class="px-description-list">
-        <tbody>
-        <tr>
-            <td>姓名</td>
-            <td>{{currentData.name}}</td>
-        </tr>
-        <tr>
-            <td>性别</td>
-            <td>{{currentData.sex}}</td>
-        </tr>
-        <tr>
-            <td>年级</td>
-            <td>{{currentData.grade}}</td>
-        </tr>
-        <tr>
-            <td>出生日期</td>
-            <td>{{currentData.birthday}}</td>
-        </tr>
-        <tr>
-            <td>邮箱</td>
-            <td>{{currentData.email}}</td>
-        </tr>
-        <tr>
-            <td>学生电话</td>
-            <td>{{currentData.phone}}</td>
-        </tr>
-        <tr>
-            <td>家长电话</td>
-            <td>{{currentData['parent_phone']}}</td>
-        </tr>
-        </tbody>
-    </table>
+    <div *ngIf="pageTag === 'detail'">
+        <div class="h-20"></div>
+        <table class="px-description-list">
+            <tbody>
+            <tr>
+                <td>姓名</td>
+                <td>{{currentData.name}}</td>
+            </tr>
+            <tr>
+                <td>性别</td>
+                <td>{{currentData.sex}}</td>
+            </tr>
+            <tr>
+                <td>年级</td>
+                <td>{{currentData.grade}}</td>
+            </tr>
+            <tr>
+                <td>出生日期</td>
+                <td>{{currentData.birthday}}</td>
+            </tr>
+            <tr>
+                <td>邮箱</td>
+                <td>{{currentData.email}}</td>
+            </tr>
+            <tr>
+                <td>学生电话</td>
+                <td>{{currentData.phone}}</td>
+            </tr>
+            <tr>
+                <td>家长电话</td>
+                <td>{{currentData['parent_phone']}}</td>
+            </tr>
+            </tbody>
+        </table>
+    </div>
+    <div *ngIf="pageTag==='class'">
+        <student-class></student-class>
+    </div>
 </section>

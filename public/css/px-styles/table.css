@@ -70,17 +70,31 @@
 }
 
 .px-table thead th:first-child,
-.px-table tbody td:first-child {
-    width: 40px;
-    text-align: center;
-    padding: 0;
-}
+ .px-table tbody td:first-child {
+     width: 40px;
+     text-align: center;
+     padding: 0;
+ }
 
 .px-table thead th:nth-child(2),
 .px-table tbody td:nth-child(2) {
     width: 50px;
     text-align: center;
     padding: 0;
+}
+
+.px-table.no-checkbox thead th:first-child,
+.px-table.no-checkbox tbody td:first-child {
+    width: 50px;
+    text-align: center;
+    padding: 0;
+}
+
+.px-table.no-checkbox thead th:nth-child(2),
+.px-table.no-checkbox tbody td:nth-child(2) {
+    width: auto;
+    text-align: left;
+    padding-left: 20px;
 }
 
 .px-table thead tr th:last-child {

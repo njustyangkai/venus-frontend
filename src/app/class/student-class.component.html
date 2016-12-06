@@ -1,0 +1,63 @@
+<div class="px-table-wrapper">
+    <div class="toolbar">
+        <div class="search-wrapper">
+            <input class="search"
+                   placeholder="输入关键字筛选"
+                   [(ngModel)]="searchKeyword"
+                   (ngModelChange)="search($event)">
+                <span class="search-addon">
+                    <a role="button">
+                        <img src="../../../public/images/icon_search_mirror.png">
+                    </a>
+                </span>
+        </div>
+    </div>
+    <table class="px-table no-checkbox">
+        <thead>
+        <tr>
+            <th>序号</th>
+            <th>学生</th>
+            <th>老师</th>
+            <th>上课时间</th>
+            <th>状态</th>
+            <th style="width: 200px;">操作</th>
+        </tr>
+        </thead>
+        <tbody>
+        <tr *ngFor="let data of currentPageData;let i=index">
+            <td>{{data.i + 1}}</td>
+            <td>{{data['student_name']}}</td>
+            <td>{{data['teacher_name']}}</td>
+            <td>{{data.startTime}}</td>
+            <td>{{data.status}}<span *ngIf="data.status===1">
+                        <i class="fa fa-unlock fa-fw"
+                           style="color: #73cf22"></i>激活</span>
+                    <span *ngIf="data.status===0">
+                        <i class="fa fa-lock fa-fw"
+                           style="color: #ff625d"></i>锁定</span></td>
+            <td class="px-table-operate">
+                <button class="px-btn px-btn-operate">缴费标签
+                </button>
+            </td>
+        </tr>
+        </tbody>
+    </table>
+    <div class="tfoot">
+        <div class="px-pagination-wrapper">
+            <div class="px-pagination-info">
+                <div>共{{size}}条</div>
+                <div>每页{{pageSize}}条</div>
+            </div>
+            <div class="px-pagination">
+                <button role="button"
+                        [disabled]="currentPage===1"
+                        (click)="pageChange(currentPage-1)"><i class="fa fa-angle-left"></i></button>
+                <input [(ngModel)]="currentPage"
+                       (ngModelChange)="pageChange($event)"><span>/{{pageNum}}</span>
+                <button role="button"
+                        (click)="pageChange(currentPage+1)"
+                        [disabled]="currentPage===pageNum"><i class="fa fa-angle-right"></i></button>
+            </div>
+        </div>
+    </div>
+</div>

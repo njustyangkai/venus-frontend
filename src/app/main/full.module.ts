@@ -19,6 +19,7 @@ import { StudentDetailComponent } from '../student/student-detail.component';
 import { FirstComponent } from '../first/first.component';
 import { StudentPickerComponent } from '../class/student-picker.component';
 import { ClassService } from '../class/class.service';
+import { StudentClassComponent } from '../class/student-class.component';
 
 @NgModule({
   declarations: [
@@ -32,7 +33,8 @@ import { ClassService } from '../class/class.service';
     StudentAddComponent,
     StudentEditComponent,
     StudentDetailComponent,
-    StudentPickerComponent
+    StudentPickerComponent,
+    StudentClassComponent
   ],
   imports: [
     SharedModule,

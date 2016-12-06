@@ -8,6 +8,7 @@ import { Router } from '@angular/router';
 
 export class StudentDetailComponent {
   currentData:any;
+  pageTag:string = 'detail';
 
   constructor(private studentService:StudentService,
               private router:Router) {
@@ -16,5 +17,13 @@ export class StudentDetailComponent {
 
   gotoEdit() {
     this.router.navigate(['/main/editStudent']);
+  }
+
+  gotoDetail() {
+    this.pageTag = 'detail';
+  }
+
+  gotoClass() {
+    this.pageTag = 'class';
   }
 }

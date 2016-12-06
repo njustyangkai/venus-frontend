@@ -16,10 +16,8 @@ export class StudentComponent implements OnInit {
   pageSize:number;
   pageNum:number;
   currentPageData:any[];
-  hasData:boolean;
   isCheckAll:boolean;
   selections:any[];
-  searchKeyword:string;
   datasCopy:any[];
 
   isBatchDel:boolean = false;
@@ -27,6 +25,8 @@ export class StudentComponent implements OnInit {
 
   isShowSuccess:boolean = false;
   successMsg:string;
+  isShowAlarm:boolean = false;
+  alarmMsg:string;
 
   @ViewChild('modal1_template') modal1_template:any;
   modal1:any;
@@ -45,7 +45,6 @@ export class StudentComponent implements OnInit {
     this.pageSize = 10;
     this.pageNum = 1;
     this.size = 0;
-    this.hasData = false;
     this.isCheckAll = false;
     this.selections = [];
     this.datasCopy = [];
@@ -74,7 +73,6 @@ export class StudentComponent implements OnInit {
 
   setSize() {
     this.size = this.datas.length;
-    this.size > 0 ? this.hasData = true : this.hasData = false;
     this.pageNum = Math.ceil(this.size / this.pageSize);
   }
 
@@ -184,6 +182,10 @@ export class StudentComponent implements OnInit {
                 this.isShowSuccess = false;
                 this.initData();
               }, 2000);
+            } else {
+              this.modal1.close();
+              this.alarmMsg = res.message;
+              this.isShowAlarm = true;
             }
           },
           (error:any)=> {

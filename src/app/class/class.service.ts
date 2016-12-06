@@ -23,6 +23,10 @@ export class ClassService {
     return this.http.get(ApiConfig.CLASS + '?start=' + start + '&end=' + end + '&id=' + id).map(this.extractData).catch(this.handleError);
   }
 
+  getById(id:string) {
+    return this.http.get(ApiConfig.CLASS + '/one?id=' + id).map(this.extractData).catch(this.handleError);
+  }
+
   add(data:any) {
     return this.http.post(ApiConfig.CLASS, data).map(this.extractData).catch(this.handleError);
   }
