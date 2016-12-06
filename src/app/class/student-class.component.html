@@ -20,6 +20,7 @@
             <th>老师</th>
             <th>上课时间</th>
             <th>状态</th>
+            <th>缴费标签</th>
             <th style="width: 200px;">操作</th>
         </tr>
         </thead>
@@ -35,8 +36,16 @@
                 <span *ngIf="data.status===0">
                     <i class="fa fa-circle-o fa-fw"
                        style="color: #ff625d"></i>未上</span></td>
+            <td><span *ngIf="data.pay===1">缴费</span>
+            </td>
             <td class="px-table-operate">
-                <button class="px-btn px-btn-operate">缴费标签
+                <button *ngIf="data.pay!==1"
+                        class="px-btn px-btn-operate"
+                        (click)="payTag(data, 1)">打标签
+                </button>
+                <button *ngIf="data.pay===1"
+                        class="px-btn px-btn-operate"
+                        (click)="payTag(data, 0)">取消标签
                 </button>
             </td>
         </tr>

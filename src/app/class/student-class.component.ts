@@ -107,4 +107,15 @@ export class StudentClassComponent implements OnInit {
     this.setSize();
     this.pageChange(1);
   }
+
+  payTag(data:any, tag:number) {
+    this.classService.payTag(data['event_id'], {pay: tag}).subscribe(
+        (res:any)=> {
+          console.log(res);
+        },
+        (error:any)=> {
+          console.log(error);
+        }
+    );
+  }
 }

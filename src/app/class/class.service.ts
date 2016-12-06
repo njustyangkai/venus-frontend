@@ -35,6 +35,10 @@ export class ClassService {
     return this.http.delete(ApiConfig.CLASS + '/' + id).map(this.extractData).catch(this.handleError);
   }
 
+  payTag(id:string, data:any) {
+    return this.http.put(ApiConfig.CLASS + '/' + id, data).map(this.extractData).catch(this.handleError);
+  }
+
   extractData(res:any) {
     let body = res.json();
     return body || {};
