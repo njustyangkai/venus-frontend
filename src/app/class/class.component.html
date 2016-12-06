@@ -54,7 +54,8 @@
                         <div *ngFor="let l of classData[(i + 1) + '-' + clock]"
                              class="class-label-wrapper">
                             <label class="label"
-                                   [style.background-color]="l.color">{{l.show}}</label>
+                                   [style.background-color]="l.color"
+                                   (click)="del((i + 1) + '-' + clock, l)">{{l.show}}</label>
                         </div>
                     </td>
                 </tr>
@@ -71,3 +72,31 @@
        (click)="isShowAttention = false"></a>
     <b>警告！</b>{{attentionMsg}}
 </div>
+
+<div class="px-alert px-alert-success"
+     *ngIf="isShowSuccess">
+    <b>成功！</b>{{successMsg}}
+</div>
+
+<template #modal1_template>
+    <div class="px-modal-header">
+        <h4>删除</h4>
+        <a role="button"
+           (click)="modal1.close()"></a>
+    </div>
+    <div class="px-modal-body">
+        <div class="px-modal-confirm">
+            <img src="../../../public/images/modal_confirm.svg">
+            <h5>确认删除数据吗？</h5>
+            <small>删除后数据将丢失，不可恢复</small>
+        </div>
+    </div>
+    <div class="px-modal-footer">
+        <button class="px-btn px-btn-delete"
+                (click)="gotoDel()">删除
+        </button>
+        <button class="px-btn px-btn-cancel"
+                (click)="modal1.close()">关闭
+        </button>
+    </div>
+</template>

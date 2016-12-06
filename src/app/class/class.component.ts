@@ -1,5 +1,5 @@
-import { Component, Injectable, OnInit } from '@angular/core';
-import { NgbDatepickerI18n } from '@ng-bootstrap/ng-bootstrap';
+import { Component, Injectable, OnInit, ViewChild } from '@angular/core';
+import { NgbDatepickerI18n, NgbModal } from '@ng-bootstrap/ng-bootstrap';
 import * as moment from 'moment';
 import { ClassService } from './class.service';
 
@@ -52,14 +52,21 @@ export class ClassComponent implements OnInit {
 
   isShowAttention:boolean = false;
   attentionMsg:string;
+  isShowSuccess:boolean = false;
+  successMsg:string;
 
   currentDate:any;
   currentTime:any;
   currentWeekday:number;
 
   classData:any;
+  tmpKey:string;
+  tmpData:any;
 
-  constructor(private _i18n:I18n, private classService:ClassService) {
+  @ViewChild('modal1_template') modal1_template:any;
+  modal1:any;
+
+  constructor(private _i18n:I18n, private classService:ClassService, private modalService:NgbModal) {
     moment.locale('zh-CN');
     this._i18n.language = 'zh';
     this.role = window.localStorage.getItem('role');
@@ -119,6 +126,46 @@ export class ClassComponent implements OnInit {
         this.classData[(i + 1) + '-' + _v] = [];
       });
     });
+    this.loadClassData();
+  }
+
+  loadClassData() {
+    let d = this.currentDate.year + '-' + this.currentDate.month + '-' + this.currentDate.day;
+    let date = new Date(d);
+    let minDate = moment(date).weekday(0).format('YYYY-MM-DD 00:00:00');
+    let maxDate = moment(date).weekday(6).format('YYYY-MM-DD 23:59:59');
+    if (this.role === '0') {
+      this.classService.getAll(minDate, maxDate).subscribe(
+          (res:any)=> {
+            if (res.success) {
+              this.extractData(res.data);
+            }
+          },
+          (error:any)=> {
+            console.log(error);
+          }
+      );
+    } else {
+      this.classService.get(minDate, maxDate, window.localStorage.getItem('userId')).subscribe(
+          (res:any)=> {
+            if (res.success) {
+              this.extractData(res.data);
+            }
+          },
+          (error:any)=> {
+            console.log(error);
+          }
+      );
+    }
+  }
+
+  extractData(datas:any[]) {
+    datas.forEach((v:any)=> {
+      let date = new Date(v['start_time']);
+      v['show'] = v['student_name'] + ' ' + moment(date).format('HH:mm');
+      let weekday = moment(date).weekday() + 1;
+      this.classData[weekday + '-' + moment(date).format('HH:00')].push(v);
+    });
   }
 
   setDate(d:number) {
@@ -176,20 +223,20 @@ export class ClassComponent implements OnInit {
     let tmp = date.year + '-' + date.month + '-' + date.day + ' ' + time.hour + ':' + time.minute;
     let dateTmp = new Date(tmp);
     let data = {
-      studentId: student.id,
-      studentName: student.name,
-      teacherId: window.localStorage.getItem('userId'),
-      teacherName: window.localStorage.getItem('username'),
-      color: this.getColor(),
-      startTime: moment(dateTmp).format('YYYY-MM-DD HH:mm:ss'),
-      endTime: moment(dateTmp).format('YYYY-MM-DD HH:mm:ss'),
-      show: student.name + ' ' + moment(dateTmp).format('HH:mm')
+      'student_id': student.id,
+      'student_name': student.name,
+      'teacher_id': window.localStorage.getItem('userId'),
+      'teacher_name': window.localStorage.getItem('username'),
+      'color': this.getColor(),
+      'start_time': moment(dateTmp).format('YYYY-MM-DD HH:mm:ss'),
+      'end_time': moment(dateTmp).format('YYYY-MM-DD HH:mm:ss'),
+      'show': student.name + ' ' + moment(dateTmp).format('HH:mm')
     };
 
     this.classService.add(data).subscribe(
         (res:any)=> {
           if (res.success) {
-            data['eventId'] = res.data;
+            data['event_id'] = res.data;
             this.classData[this.currentWeekday + '-' + moment(dateTmp).format('HH:00')].push(data);
           }
         },
@@ -209,4 +256,40 @@ export class ClassComponent implements OnInit {
     return colors[Math.floor(Math.random() * 23) % 23];
   }
 
+  del(k:string, data:any) {
+    if (this.role === '1') return;
+    this.tmpKey = k;
+    this.tmpData = data;
+    this.modal1 = this.modalService.open(
+        this.modal1_template, {
+          backdrop: true,
+          keyboard: true
+        }
+    );
+  }
+
+  gotoDel() {
+    this.classService.del(this.tmpData['event_id']).subscribe(
+        (res:any)=> {
+          if (res.success) {
+            this.modal1.close();
+            let index:number;
+            this.classData[this.tmpKey].forEach((v:any, i:number)=> {
+              if (v['event_id'] === this.tmpData['event_id']) {
+                index = i;
+              }
+            });
+            this.classData[this.tmpKey].splice(index, 1);
+            this.successMsg = '删除课程完成。';
+            this.isShowSuccess = true;
+            setTimeout(()=> {
+              this.isShowSuccess = false;
+            }, 2000);
+          }
+        },
+        (error:any)=> {
+          console.log(error);
+        }
+    );
+  }
 }
