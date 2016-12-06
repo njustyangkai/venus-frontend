@@ -29,12 +29,12 @@
             <td>{{data['student_name']}}</td>
             <td>{{data['teacher_name']}}</td>
             <td>{{data.startTime}}</td>
-            <td>{{data.status}}<span *ngIf="data.status===1">
-                        <i class="fa fa-unlock fa-fw"
-                           style="color: #73cf22"></i>激活</span>
-                    <span *ngIf="data.status===0">
-                        <i class="fa fa-lock fa-fw"
-                           style="color: #ff625d"></i>锁定</span></td>
+            <td><span *ngIf="data.status===1">
+                    <i class="fa fa-check fa-fw"
+                       style="color: #73cf22"></i>已上</span>
+                <span *ngIf="data.status===0">
+                    <i class="fa fa-circle-o fa-fw"
+                       style="color: #ff625d"></i>未上</span></td>
             <td class="px-table-operate">
                 <button class="px-btn px-btn-operate">缴费标签
                 </button>

@@ -75,7 +75,12 @@ export class StudentClassComponent implements OnInit {
     this.datas.forEach((v, i)=> {
       for (let k in v) {
         if (k === 'start_time') {
-          v['startTime'] = moment(v[k]).format('YYYY-MM-DD HH:mm');
+          v['startTime'] = moment(v[k]).format('YYYY-MM-DD HH:mm dddd');
+          if (new Date(v[k]).getTime() > new Date().getTime()) {
+            v['status'] = 0;
+          } else {
+            v['status'] = 1;
+          }
         }
       }
       v['i'] = i;
