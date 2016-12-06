@@ -78,13 +78,15 @@ export class StudentClassComponent implements OnInit {
           v['startTime'] = moment(v[k]).format('YYYY-MM-DD HH:mm dddd');
           if (new Date(v[k]).getTime() > new Date().getTime()) {
             v['status'] = 0;
+            v['statusShow'] = '未上';
           } else {
             v['status'] = 1;
+            v['statusShow'] = '已上';
           }
         }
       }
       v['i'] = i;
-      v['search'] = v['startTime'];
+      v['search'] = v['startTime'] + v['statusShow'];
     });
   }
 
