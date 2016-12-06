@@ -20,6 +20,7 @@ export class StudentEditComponent implements OnInit {
   constructor(private studentService:StudentService,
               private modalService:NgbModal,
               private router:Router) {
+    moment.locale('zh-CN');
     this.currentData = this.studentService.currentData;
   }
 

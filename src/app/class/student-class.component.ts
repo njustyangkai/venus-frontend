@@ -21,6 +21,7 @@ export class StudentClassComponent implements OnInit {
   datasCopy:any[];
 
   constructor(private classService:ClassService, private studentService:StudentService) {
+    moment.locale('zh-CN');
     this.currentStudent = this.studentService.currentData;
     this.datas = [];
     this.currentPage = 1;

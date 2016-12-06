@@ -39,6 +39,7 @@ export class StudentComponent implements OnInit {
   constructor(private studentService:StudentService,
               private router:Router,
               private modalService:NgbModal) {
+    moment.locale('zh-CN');
     this.datas = [];
     this.currentPage = 1;
     this.currentPageData = [];

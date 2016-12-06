@@ -17,6 +17,7 @@ export class StudentAddComponent {
   @ViewChild('addForm') addForm:any;
 
   constructor(private router:Router, private studentService:StudentService) {
+    moment.locale('zh-CN');
   }
 
   add() {

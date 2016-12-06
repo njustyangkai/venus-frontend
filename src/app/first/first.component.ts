@@ -18,6 +18,7 @@ export class FirstComponent {
   @ViewChild('editForm') editForm:any;
 
   constructor(private http:HttpService, private router:Router) {
+    moment.locale('zh-CN');
     this.username = window.localStorage.getItem('username');
   }
 
