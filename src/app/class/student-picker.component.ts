@@ -16,6 +16,7 @@ export class StudentPickerComponent implements OnInit {
       name: '全部'
     };
     this.studentList = [this.student];
+    this.classService.currentStudent = this.student;
   }
 
   ngOnInit() {
@@ -34,5 +35,9 @@ export class StudentPickerComponent implements OnInit {
           console.log(error);
         }
     );
+  }
+
+  setCurrentStudent() {
+    this.classService.currentStudent = this.student;
   }
 }

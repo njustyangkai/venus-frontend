@@ -6,6 +6,8 @@ import { Observable } from 'rxjs/Observable';
 @Injectable()
 export class ClassService {
 
+  currentStudent:any;
+
   constructor(private http:HttpService) {
   }
 

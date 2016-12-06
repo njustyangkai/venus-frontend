@@ -6,7 +6,7 @@
     <i class="fa fa-caret-down"></i>
     <div class="dropdown-menu">
         <button *ngFor="let s of studentList"
-                (click)="student = s">{{s.name}}
+                (click)="student = s;setCurrentStudent()">{{s.name}}
         </button>
     </div>
 </div>

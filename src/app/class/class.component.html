@@ -23,13 +23,15 @@
                                 (ngModelChange)="dateChange($event)"></ngb-datepicker>
             </div>
             <div style="height: 9px;"></div>
-            <div style="position: relative" *ngIf="role==='0'">
+            <div style="position: relative"
+                 *ngIf="role==='0'">
                 <div class="px-timepicker"
                      style="display: inline-block">
                     <ngb-timepicker [(ngModel)]="currentTime"></ngb-timepicker>
                 </div>
                 <button class="px-btn px-btn-success create"
-                        style="position: absolute;top:20px;margin-left: 13px;width: 130px;">添加课程
+                        style="position: absolute;top:20px;margin-left: 13px;width: 130px;"
+                        (click)="add()">添加课程
                 </button>
             </div>
         </div>
@@ -49,6 +51,11 @@
                     <td>{{clock}}</td>
                     <td *ngFor="let day of weekdays; let i = index"
                         [ngClass]="setDayClass(i + 1)">
+                        <div *ngFor="let l of classData[(i + 1) + '-' + clock]"
+                             class="class-label-wrapper">
+                            <label class="label"
+                                   [style.background-color]="l.color">{{l.show}}</label>
+                        </div>
                     </td>
                 </tr>
                 </tbody>
@@ -56,3 +63,11 @@
         </div>
     </div>
 </section>
+
+<div class="px-alert px-alert-attention"
+     *ngIf="isShowAttention">
+    <a role="button"
+       class="px-alert-close"
+       (click)="isShowAttention = false"></a>
+    <b>警告！</b>{{attentionMsg}}
+</div>
