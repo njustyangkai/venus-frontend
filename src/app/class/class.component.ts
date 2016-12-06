@@ -69,6 +69,7 @@ export class ClassComponent implements OnInit {
     ];
     this.weekdays = ['一', '二', '三', '四', '五', '六', '日'];
     this.getNow();
+    this.setLastDate();
   }
 
   ngOnInit() {
@@ -87,7 +88,16 @@ export class ClassComponent implements OnInit {
       minute: date.getMinutes()
     };
     this.getDate();
+  }
+
+  setLastDate() {
     this.lastDate = this.currentDate;
+  }
+
+  getToday() {
+    this.getNow();
+    this.isInitClassData();
+    this.setLastDate();
   }
 
   isInitClassData() {
@@ -95,7 +105,7 @@ export class ClassComponent implements OnInit {
     let date = new Date(d);
     let minDate = new Date(moment(date).weekday(0).format('YYYY-MM-DD 00:00:00'));
     let maxDate = new Date(moment(date).weekday(6).format('YYYY-MM-DD 23:59:59'));
-    let cd =  this.currentDate.year + '-' +  this.currentDate.month + '-' +  this.currentDate.day;
+    let cd = this.currentDate.year + '-' + this.currentDate.month + '-' + this.currentDate.day;
     let cdate = new Date(cd + ' 00:00:00');
     if (cdate.getTime() < minDate.getTime() || cdate.getTime() > maxDate.getTime()) {
       this.initClassData();
@@ -132,14 +142,14 @@ export class ClassComponent implements OnInit {
   dateChange(e:any) {
     this.getDate();
     this.isInitClassData();
-    this.lastDate = e;
+    this.setLastDate();
   }
 
   add() {
     let date = this.currentDate;
     let time = this.currentTime;
     let student = this.classService.currentStudent;
-    if (student.id === 'all') {
+    if (!student.id) {
       this.attentionMsg = '请选择一名学生。';
       this.isShowAttention = true;
       setTimeout(()=> {
@@ -176,8 +186,17 @@ export class ClassComponent implements OnInit {
       show: student.name + ' ' + moment(dateTmp).format('HH:mm')
     };
 
-    this.classData[this.currentWeekday + '-' + moment(dateTmp).format('HH:00')].push(data);
-
+    this.classService.add(data).subscribe(
+        (res:any)=> {
+          if (res.success) {
+            data['eventId'] = res.data;
+            this.classData[this.currentWeekday + '-' + moment(dateTmp).format('HH:00')].push(data);
+          }
+        },
+        (error:any)=> {
+          console.log(error);
+        }
+    );
   }
 
   getColor() {

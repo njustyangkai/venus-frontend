@@ -11,11 +11,8 @@ export class StudentPickerComponent implements OnInit {
   studentList:any[];
 
   constructor(private classService:ClassService) {
-    this.student = {
-      id: 'all',
-      name: '全部'
-    };
-    this.studentList = [this.student];
+    this.student = {};
+    this.studentList = [];
     this.classService.currentStudent = this.student;
   }
 

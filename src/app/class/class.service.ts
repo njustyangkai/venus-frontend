@@ -15,6 +15,10 @@ export class ClassService {
     return this.http.get(ApiConfig.STUDENT + '/forPicker').map(this.extractData).catch(this.handleError);
   }
 
+  add(data:any) {
+    return this.http.post(ApiConfig.CLASS, data).map(this.extractData).catch(this.handleError);
+  }
+
   extractData(res:any) {
     let body = res.json();
     return body || {};
