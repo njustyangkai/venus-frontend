@@ -20,6 +20,9 @@ export class StudentClassComponent implements OnInit {
   currentPageData:any[];
   datasCopy:any[];
 
+  isShowSuccess:boolean = false;
+  successMsg:string;
+
   constructor(private classService:ClassService, private studentService:StudentService) {
     moment.locale('zh-CN');
     this.currentStudent = this.studentService.currentData;
@@ -111,7 +114,9 @@ export class StudentClassComponent implements OnInit {
   payTag(data:any, tag:number) {
     this.classService.payTag(data['event_id'], {pay: tag}).subscribe(
         (res:any)=> {
-          console.log(res);
+          if (res.success) {
+            data['pay'] = tag;
+          }
         },
         (error:any)=> {
           console.log(error);
