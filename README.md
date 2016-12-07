@@ -1,2 +1,2 @@
-# venus-frontend2
-venus-frontend2
+# venus-frontend
+venus-frontend build by Angular2 & webpack
