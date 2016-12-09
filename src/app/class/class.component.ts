@@ -343,7 +343,15 @@ export class ClassComponent implements OnInit {
     };
     this.classService.copy(postData).subscribe(
         (res:any)=> {
-          console.log(res);
+          if (res.success) {
+            this.modal2.close();
+            this.successMsg = '复制上周完成。2s后刷新本周课程。';
+            this.isShowSuccess = true;
+            setTimeout(()=>{
+              this.isShowSuccess = false;
+              this.initClassData();
+            },2000);
+          }
         },
         (error:any)=> {
           console.log(error);
