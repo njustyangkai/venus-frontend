@@ -2,8 +2,9 @@
     <h1>My Classes</h1>
     <small>You can check your classes here.</small>
     <div class="operate">
-        <button class="px-btn px-btn-default"
-                (click)="getToday();dp.navigateTo()">今天
+        <button *ngIf="role==='0'"
+                class="px-btn px-btn-default"
+                (click)="copyLastWeek()">复制上周
         </button>
         <button class="px-btn px-btn-default"
                 (click)="getToday();dp.navigateTo()">今天
@@ -49,7 +50,7 @@
                 <tr>
                     <th></th>
                     <th *ngFor="let day of weekdays; let i = index">
-                        {{day}} {{setDate(i + 1)}}
+                        {{day}} {{setDate(i)}}
                     </th>
                 </tr>
                 </thead>
@@ -104,6 +105,29 @@
         </button>
         <button class="px-btn px-btn-cancel"
                 (click)="modal1.close()">关闭
+        </button>
+    </div>
+</template>
+
+<template #modal2_template>
+    <div class="px-modal-header">
+        <h4>复制上周</h4>
+        <a role="button"
+           (click)="modal2.close()"></a>
+    </div>
+    <div class="px-modal-body">
+        <div class="px-modal-confirm">
+            <img src="../../../public/images/modal_confirm.svg">
+            <h5>确认将{{setDate(-6)}}至{{setDate(-1)}}的课程到{{setDate(0)}}至{{setDate(6)}}吗？</h5>
+            <small>复制后本周数据将与上周一致</small>
+        </div>
+    </div>
+    <div class="px-modal-footer">
+        <button class="px-btn px-btn-primary"
+                (click)="gotoDel()">确认
+        </button>
+        <button class="px-btn px-btn-cancel"
+                (click)="modal2.close()">关闭
         </button>
     </div>
 </template>

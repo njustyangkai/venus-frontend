@@ -67,6 +67,8 @@ export class ClassComponent implements OnInit {
 
   @ViewChild('modal1_template') modal1_template:any;
   modal1:any;
+  @ViewChild('modal2_template') modal2_template:any;
+  modal2:any;
 
   constructor(private _i18n:I18n,
               private classService:ClassService,
@@ -177,7 +179,7 @@ export class ClassComponent implements OnInit {
   setDate(d:number) {
     let tmp = this.currentDate.year + '-' + this.currentDate.month + '-' + this.currentDate.day;
     let date = new Date(tmp);
-    return moment(moment(date).weekday(d - 1)).format('MM-DD');
+    return moment(moment(date).weekday(d)).format('MM-DD');
   }
 
   getDate() {
@@ -315,5 +317,14 @@ export class ClassComponent implements OnInit {
           }
       );
     }
+  }
+
+  copyLastWeek() {
+    this.modal2 = this.modalService.open(
+        this.modal2_template, {
+          backdrop: true,
+          keyboard: true
+        }
+    );
   }
 }
