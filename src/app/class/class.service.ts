@@ -42,6 +42,10 @@ export class ClassService {
   getStudentById(id:string) {
     return this.http.get(ApiConfig.STUDENT + '/' + id).map(this.extractData).catch(this.handleError);
   }
+  
+  copy(data:any) {
+    return this.http.post(ApiConfig.CLASS + '/copy', data).map(this.extractData).catch(this.handleError);
+  }
 
   extractData(res:any) {
     let body = res.json();

@@ -319,11 +319,34 @@ export class ClassComponent implements OnInit {
     }
   }
 
-  copyLastWeek() {
+  copy() {
     this.modal2 = this.modalService.open(
         this.modal2_template, {
           backdrop: true,
           keyboard: true
+        }
+    );
+  }
+
+  gotoCopy() {
+    let tmp = this.currentDate.year + '-' + this.currentDate.month + '-' + this.currentDate.day;
+    let date = new Date(tmp);
+    let oriStart = moment(moment(date).weekday(-7)).format('YYYY-MM-DD 00:00:00');
+    let oriEnd = moment(moment(date).weekday(-1)).format('YYYY-MM-DD 23:59:59');
+    let start = moment(moment(date).weekday(0)).format('YYYY-MM-DD 00:00:00');
+    let end = moment(moment(date).weekday(6)).format('YYYY-MM-DD 23:59:59');
+    let postData = {
+      oriStart: oriStart,
+      oriEnd: oriEnd,
+      start: start,
+      end: end
+    };
+    this.classService.copy(postData).subscribe(
+        (res:any)=> {
+          console.log(res);
+        },
+        (error:any)=> {
+          console.log(error);
         }
     );
   }
