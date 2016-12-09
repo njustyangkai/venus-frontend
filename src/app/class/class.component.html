@@ -5,9 +5,12 @@
         <button class="px-btn px-btn-default"
                 (click)="getToday();dp.navigateTo()">今天
         </button>
-        <button *ngIf="role!=='0'"
+        <button class="px-btn px-btn-default"
+                (click)="getToday();dp.navigateTo()">今天
+        </button>
+        <button *ngIf="role==='1'"
                 class="px-btn px-btn-default"
-        (click)="gotoDetail()">学生详情
+                (click)="gotoDetail()">学生详情
         </button>
     </div>
 </section>
@@ -20,7 +23,7 @@
                 <student-picker></student-picker>
             </div>
             <div style="height: 54px;"
-                 *ngIf="role!=='0'"></div>
+                 *ngIf="role==='1'"></div>
             <div class="date">
                 <ngb-datepicker #dp
                                 [(ngModel)]="currentDate"
