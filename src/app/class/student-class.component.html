@@ -21,7 +21,9 @@
             <th>上课时间</th>
             <th>状态</th>
             <th>缴费标签</th>
-            <th style="width: 200px;">操作</th>
+            <th *ngIf="role === '0'"
+                style="width: 200px;">操作
+            </th>
         </tr>
         </thead>
         <tbody>
@@ -38,7 +40,8 @@
                        style="color: #ff625d"></i>未上</span></td>
             <td><span *ngIf="data.pay===1">缴费</span>
             </td>
-            <td class="px-table-operate">
+            <td *ngIf="role === '0'"
+                class="px-table-operate">
                 <button *ngIf="data.pay!==1"
                         class="px-btn px-btn-operate"
                         (click)="payTag(data, 1)">打标签

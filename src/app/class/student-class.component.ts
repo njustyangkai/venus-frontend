@@ -12,6 +12,8 @@ import { StudentService } from '../student/student.service';
 export class StudentClassComponent implements OnInit {
   currentStudent:any;
 
+  role:string;
+
   datas:any[];
   currentPage:number;
   size:number;
@@ -25,6 +27,7 @@ export class StudentClassComponent implements OnInit {
 
   constructor(private classService:ClassService, private studentService:StudentService) {
     moment.locale('zh-CN');
+    this.role = window.localStorage.getItem('role');
     this.currentStudent = this.studentService.currentData;
     this.datas = [];
     this.currentPage = 1;

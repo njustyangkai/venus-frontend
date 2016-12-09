@@ -39,6 +39,10 @@ export class ClassService {
     return this.http.put(ApiConfig.CLASS + '/' + id, data).map(this.extractData).catch(this.handleError);
   }
 
+  getStudentById(id:string) {
+    return this.http.get(ApiConfig.STUDENT + '/' + id).map(this.extractData).catch(this.handleError);
+  }
+
   extractData(res:any) {
     let body = res.json();
     return body || {};

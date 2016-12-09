@@ -5,6 +5,10 @@
         <button class="px-btn px-btn-default"
                 (click)="getToday();dp.navigateTo()">今天
         </button>
+        <button *ngIf="role!=='0'"
+                class="px-btn px-btn-default"
+        (click)="gotoDetail()">学生详情
+        </button>
     </div>
 </section>
 

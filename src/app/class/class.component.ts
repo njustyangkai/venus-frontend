@@ -2,6 +2,8 @@ import { Component, Injectable, OnInit, ViewChild } from '@angular/core';
 import { NgbDatepickerI18n, NgbModal } from '@ng-bootstrap/ng-bootstrap';
 import * as moment from 'moment';
 import { ClassService } from './class.service';
+import { Router } from '@angular/router';
+import { StudentService } from '../student/student.service';
 
 const I18N_VALUES = {
   en: {
@@ -66,7 +68,11 @@ export class ClassComponent implements OnInit {
   @ViewChild('modal1_template') modal1_template:any;
   modal1:any;
 
-  constructor(private _i18n:I18n, private classService:ClassService, private modalService:NgbModal) {
+  constructor(private _i18n:I18n,
+              private classService:ClassService,
+              private modalService:NgbModal,
+              private router:Router,
+              private studentService:StudentService) {
     moment.locale('zh-CN');
     this._i18n.language = 'zh';
     this.role = window.localStorage.getItem('role');
@@ -110,8 +116,8 @@ export class ClassComponent implements OnInit {
   isInitClassData() {
     let d = this.lastDate.year + '-' + this.lastDate.month + '-' + this.lastDate.day;
     let date = new Date(d);
-    let minDate = new Date(moment(date).weekday(0).format('YYYY-MM-DD 00:00:00'));
-    let maxDate = new Date(moment(date).weekday(6).format('YYYY-MM-DD 23:59:59'));
+    let minDate = new Date(moment(moment(date).weekday(0)).format('YYYY-MM-DD 00:00:00'));
+    let maxDate = new Date(moment(moment(date).weekday(6)).format('YYYY-MM-DD 23:59:59'));
     let cd = this.currentDate.year + '-' + this.currentDate.month + '-' + this.currentDate.day;
     let cdate = new Date(cd + ' 00:00:00');
     if (cdate.getTime() < minDate.getTime() || cdate.getTime() > maxDate.getTime()) {
@@ -132,8 +138,8 @@ export class ClassComponent implements OnInit {
   loadClassData() {
     let d = this.currentDate.year + '-' + this.currentDate.month + '-' + this.currentDate.day;
     let date = new Date(d);
-    let minDate = moment(date).weekday(0).format('YYYY-MM-DD 00:00:00');
-    let maxDate = moment(date).weekday(6).format('YYYY-MM-DD 23:59:59');
+    let minDate = moment(moment(date).weekday(0)).format('YYYY-MM-DD 00:00:00');
+    let maxDate = moment(moment(date).weekday(6)).format('YYYY-MM-DD 23:59:59');
     if (this.role === '0') {
       this.classService.getAll(minDate, maxDate).subscribe(
           (res:any)=> {
@@ -250,7 +256,7 @@ export class ClassComponent implements OnInit {
     const colors = [
       '#1abc9c', '#2ecc71', '#3498db', '#9b59b6', '#34495e',
       '#16a085', '#27ae60', '#2980b6', '#8e44ad', '#2c3e50',
-      '#f1c404', '#e67e22', '#e74c3c', '#555555', '#95a5a6', 
+      '#f1c404', '#e67e22', '#e74c3c', '#555555', '#95a5a6',
       '#f39c12', '#d35400', '#c0392b', '#bdc3c7', '#7f8c8d'];
 
     return colors[Math.floor(Math.random() * 19) % 19];
@@ -291,5 +297,23 @@ export class ClassComponent implements OnInit {
           console.log(error);
         }
     );
+  }
+
+  gotoDetail() {
+    if (this.role === '1') {
+      this.classService.getStudentById(window.localStorage.getItem('userId')).subscribe(
+          (res:any)=> {
+            if (res.success && res.data) {
+              res.data['user_id'] = window.localStorage.getItem('userId');
+              res.data['username'] = window.localStorage.getItem('username');
+              this.studentService.currentData = res.data;
+              this.router.navigate(['/main/studentDetail']);
+            }
+          },
+          (error:any)=> {
+            console.log(error);
+          }
+      );
+    }
   }
 }

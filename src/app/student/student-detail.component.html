@@ -1,5 +1,5 @@
 <section class="px-content-header">
-    <ol class="breadcrumb">
+    <ol *ngIf="role==='0'" class="breadcrumb">
         <li class="breadcrumb-item"><a role="button"
                                        routerLink="/main/student">学生列表</a></li>
         <li class="breadcrumb-item">{{currentData.name}}</li>
@@ -9,7 +9,7 @@
         查看学生详细信息，上课情况
     </small>
     <div class="operate">
-        <button *ngIf="pageTag === 'detail'"
+        <button *ngIf="pageTag === 'detail' && role === '0'"
                 class="px-btn px-btn-default"
                 (click)="gotoEdit()">编辑
         </button>

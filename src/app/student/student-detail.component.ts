@@ -7,11 +7,13 @@ import { Router } from '@angular/router';
 })
 
 export class StudentDetailComponent {
+  role:string;
   currentData:any;
   pageTag:string = 'detail';
 
   constructor(private studentService:StudentService,
               private router:Router) {
+    this.role = window.localStorage.getItem('role');
     this.currentData = this.studentService.currentData;
   }
 
